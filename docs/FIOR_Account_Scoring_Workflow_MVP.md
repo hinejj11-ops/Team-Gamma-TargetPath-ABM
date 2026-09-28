@@ -23,7 +23,7 @@ flowchart TD
     B --> C[Agent Self-Check Loop<br/>Verify array length, bands \& format]
     C -->|Pass| D[Deterministic Python Engine<br/>Look up points \& calculate weights]
     C -->|Fail| B
-    D --> E\[Composite Score \& Tier Assignment<br/>0-100 scale]
+    D --> E[Composite Score \& Tier Assignment<br/>0-100 scale]
     E --> F{Decision Gate<br/>Anomalies / Overrides?}
     F -->|Yes| G[TargetOrate Consultant Review]
     F -->|No| H[Master Spreadsheet \& Account Summary Cards]
