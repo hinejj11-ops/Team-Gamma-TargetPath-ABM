@@ -1,0 +1,21 @@
+Company Name,ICP Status,Sub-Industry,Fit Score (/35),Intent Score (/25),Opportunity Score (/30),Relationship Score (/10),Total FIOR Score (/100),Tier Assignment
+Nexis Cloud Systems,Y,Cybersecurity & Compliance,32,22,27,8.5,89.5,Tier 1 (1:1 ABM)
+Aegis Tech Group,Y,FinTech Solutions,32,22,27,6,87,Tier 1 (1:1 ABM)
+Optima Cloud Solutions,Y,FinTech Solutions,32,22,22,8.5,84.5,Tier 1 (1:1 ABM)
+Pioneer Digital Services,Y,Cybersecurity & Compliance,32,22,18,8.5,80.5,Tier 1 (1:1 ABM)
+Meridian IT Solutions,Y,HealthTech SaaS,32,22,18,8.5,80.5,Tier 1 (1:1 ABM)
+Summit IT Consulting,Y,FinTech Solutions,32,12,27,8.5,79.5,Tier 2 (1:Few ABM)
+Stratagem Software,Y,Cybersecurity & Compliance,32,12,27,8.5,79.5,Tier 2 (1:Few ABM)
+CloudBridge Solutions,Y,HealthTech SaaS,32,22,18,6,78,Tier 2 (1:Few ABM)
+Vanguard Integrators,Y,Cybersecurity & Compliance,32,18,22,6,78,Tier 2 (1:Few ABM)
+BlueMatrix Technologies,Y,FinTech Solutions,32,12,27,6,77,Tier 2 (1:Few ABM)
+Crestview Cloud Group,Y,FinTech Solutions,32,12,22,8.5,74.5,Tier 2 (1:Few ABM)
+AlphaCentric IT,Partial,HealthTech SaaS,24,12,27,8.5,71.5,Tier 2 (1:Few ABM)
+Apex ServiceNow Partner,Y,Cloud Infrastructure & DevOps,32,8,22,8.5,70.5,Tier 2 (1:Few ABM)
+OmniTech Systems,Partial,Outsourced Digital Marketing (Outside ICP),24,12,22,8.5,66.5,Tier 2 (1:Few ABM)
+Pinnacle Enterprise Tech,Partial,Cybersecurity & Compliance,24,12,22,8.5,66.5,Tier 2 (1:Few ABM)
+Veritas Cloud Partners,Partial,Cloud Infrastructure & DevOps,24,12,18,8.5,62.5,Tier 2 (1:Few ABM)
+Novus Tech Services,Disqualified (N),Outsourced Digital Marketing (Outside ICP),10,5,6,4,25,Nurture / Disqualify
+Quantum Integration Group,Disqualified (N),Outsourced Digital Marketing (Outside ICP),10,5,6,4,25,Nurture / Disqualify
+Zenith Software Partners,Disqualified (N),Outsourced Digital Marketing (Outside ICP),10,5,6,4,25,Nurture / Disqualify
+Helix Cloud Solutions,Disqualified (N),Outsourced Digital Marketing (Outside ICP),10,5,6,4,25,Nurture / Disqualify
