@@ -19,14 +19,14 @@ This eliminates the ranking instability and math drift observed in earlier manua
 
 ```mermaid
 flowchart TD
-    A\[Raw Account Data<br/>\& ICP Target] --> B\[LLM JSON Classification<br/>14 criteria, fixed bands]
-    B --> C\[Agent Self-Check Loop<br/>Verify array length, bands \& format]
-    C -->|Pass| D\[Deterministic Python Engine<br/>Look up points \& calculate weights]
+    A[Raw Account Data<br/>\& ICP Target] --> B[LLM JSON Classification<br/>14 criteria, fixed bands]
+    B --> C[Agent Self-Check Loop<br/>Verify array length, bands \& format]
+    C -->|Pass| D[Deterministic Python Engine<br/>Look up points \& calculate weights]
     C -->|Fail| B
     D --> E\[Composite Score \& Tier Assignment<br/>0-100 scale]
     E --> F{Decision Gate<br/>Anomalies / Overrides?}
-    F -->|Yes| G\[TargetOrate Consultant Review]
-    F -->|No| H\[Master Spreadsheet \& Account Summary Cards]
+    F -->|Yes| G[TargetOrate Consultant Review]
+    F -->|No| H[Master Spreadsheet \& Account Summary Cards]
     G --> H
 ```
 
