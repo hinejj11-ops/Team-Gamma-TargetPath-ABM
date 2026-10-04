@@ -1,5 +1,5 @@
 Criteria,Rank ,Rationale
-Company Name,1,If we don't know the customer's name we can contact them to make a sale
+Company Name,1,If we don't know the customer's name we can't contact them to make a sale
 Industry,2,Targetorate only works with particular industries
 Target ACV ($),3,If we don't have the account value we can't properly rank the attractiveness of the client
 Annual Revenue ($M),4,How big is the company
