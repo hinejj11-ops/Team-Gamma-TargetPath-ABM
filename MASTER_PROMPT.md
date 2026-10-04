@@ -10,7 +10,7 @@ Your objective is to evaluate a batch of candidate accounts against the provided
 
    * **Dataset:** Review the attached company dataset CSV.
    * **Rubric (`/docs/FIOR\_Scoring\_Rubric\_10\_02\_2026.md`):** Use the 14 anchored criteria (scored 1 to 10 integers; use odd numbers 9, 7, 5, 3 only for mixed conditions).
-   * **Reference List** When evaluating Criteria 3 (Tech Stack), Criterion 4 (Compliance), and Criteria 10–12 (Expansion/Strategic Value), cross-reference the candidate account attributes against the baseline criteria defined in `/Client_Target_Lists.md`.
+   * **Reference List:** When evaluating Criteria 3 (Tech Stack), Criterion 4 (Compliance), and Criteria 10–12 (Expansion/Strategic Value), cross-reference the candidate account attributes against the baseline criteria defined in `/Client_Target_Lists.md`.
    * **Ranking Model (`/data/Criteria\_Ranking\_Model.csv`):** Use the data-importance ranks (1 to 20) to handle missing information.
 2. **Apply Missing Data \& Ranking Rules:**
 
