@@ -1,0 +1,21 @@
+Criteria,Rank ,Rationale
+Company Name,1,If we don't know the customer's name we can contact them to make a sale
+Industry,2,Targetorate only works with particular industries
+Target ACV ($),3,If we don't have the account value we can't properly rank the attractiveness of the client
+Annual Revenue ($M),4,How big is the company
+Company Stage,5,How stable is the company and its cashflows
+Business Model,6,How do they make money which goes into how we market
+Buying Trigger,7,What will convince them to buy
+Purchase Timeline & Readiness,8,What is their timeline
+Primary Pain Point,9,What is driving them to purchase
+Geography,10,Where are they located 
+ICP Qualified (Y/N),11,
+Sub-Industry,12,What is their speciality which is reinforces the industry  info
+Competitive Context,13,Helps with the ranking but can be infered using higher ranked info
+Champion Status,14,Adds to color to our analysis
+Named Key Contacts,15,Adds to color to our analysis
+Employee Count,16,This is a number that reinforces the data we gain from company stage
+Tech Stack,17,What they use now is helpful but not required to make a score
+Existing Connections & History,18,Helps with pursuit but not high of the list of requirements
+Website Research & Behavior,19,Helpful info but not absloutly required to make the score
+Third-Party Intent Topics,20,Helpful info but not absloutly required to make the score
