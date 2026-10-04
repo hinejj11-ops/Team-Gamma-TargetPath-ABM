@@ -2,7 +2,7 @@
 **Team Gamma | Auburn University Harbert College of Business (MBA Capstone, Fall 2026)**
 
 ## Overview
-This repository is an **LLM-native, one-click account scoring system** built for TargetOrate. Instead of relying on local Python scripts, the repository packages enterprise instructions, the **10-2-2026 FIOR Rubric**, and the **Criteria Ranking Model** so any LLM can autonomously execute the entire scoring workflow in a single conversational prompt.
+This repository is an **LLM-native, one-click account scoring system** built for TargetOrate. The repository packages enterprise instructions, the **10-2-2026 FIOR Rubric**, and the **Criteria Ranking Model** so any LLM can autonomously execute the entire scoring workflow in a single conversational prompt.
 
 ## Repository Structure
 - `/docs/FIOR_Scoring_Rubric_10_02_2026.md`: The official 14-criterion anchored scoring rules.
