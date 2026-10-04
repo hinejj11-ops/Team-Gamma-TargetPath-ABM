@@ -14,4 +14,4 @@ This repository is an **LLM-native, one-click account scoring system** built for
 1. Load this repository into your enterprise LLM (e.g., ChatGPT Enterprise or Claude Enterprise).
 2. Upload your company dataset CSV into the chat.
 3. Paste the following prompt:
-   > *"Execute the scoring workflow outlined in `MASTER_PROMPT.md` for the attached company dataset."*
+   > *"Using the instructions in MASTER_PROMPT.md, the rubric, and the ranking model in this repository, evaluate all accounts in the attached dataset and output the final scored ABM portfolio table."*
