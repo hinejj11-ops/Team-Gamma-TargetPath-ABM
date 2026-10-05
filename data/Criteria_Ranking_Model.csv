@@ -1,21 +1,21 @@
-Criteria,Rank ,Rationale
-Company Name,1,If we don't know the customer's name we can't contact them to make a sale
-Industry,2,Targetorate only works with particular industries
-Target ACV ($),3,If we don't have the account value we can't properly rank the attractiveness of the client
-Annual Revenue ($M),4,How big is the company
-Company Stage,5,How stable is the company and its cashflows
-Business Model,6,How do they make money which goes into how we market
-Buying Trigger,7,What will convince them to buy
-Purchase Timeline & Readiness,8,What is their timeline
-Primary Pain Point,9,What is driving them to purchase
-Geography,10,Where are they located 
-ICP Qualified (Y/N),11,
-Sub-Industry,12,What is their speciality which is reinforces the industry  info
-Competitive Context,13,Helps with the ranking but can be infered using higher ranked info
-Champion Status,14,Adds to color to our analysis
-Named Key Contacts,15,Adds to color to our analysis
-Employee Count,16,This is a number that reinforces the data we gain from company stage
-Tech Stack,17,What they use now is helpful but not required to make a score
-Existing Connections & History,18,Helps with pursuit but not high of the list of requirements
-Website Research & Behavior,19,Helpful info but not absloutly required to make the score
-Third-Party Intent Topics,20,Helpful info but not absloutly required to make the score
+Evidence Category,Rank,V2 Source Fields,FIOR Criteria,Rationale
+Account Identity,1,Company Name,All / Audit,"A valid account identity is required for traceability, deduplication, outreach, and an auditable score."
+Industry & Segment Fit,2,Industry; Sub-Industry,C1,"Primary determinant of ICP fit; both industry and sub-industry are required to apply C1 independently."
+Target ACV,3,Target ACV ($),C9,"Directly determines C9 and materially affects account attractiveness and ABM prioritization."
+Company Size,4,Annual Revenue ($M); Employee Count,C2; C11,"Revenue and employee count jointly determine C2 and also support the C11 market-leader test."
+Technology Compatibility,5,CRM / Sales Engagement; Cloud Infrastructure; Data / Analytics; Intent / ABM Platform; Marketing Automation; Technology Evidence Date,C3,"Required to determine whether the account meets required technology categories, preferred-stack signals, or incompatibility conditions."
+Geography & Compliance,6,Geography; SOC 2 Type II; ISO 27001; GDPR Ready; HIPAA Ready; Compliance Evidence Date,C4,"Required to verify served geography and applicable security/regulatory readiness."
+Dated Intent Signals,7,Intent Signal 1 Type; Intent Signal 1 Date; Intent Signal 2 Type; Intent Signal 2 Date; Intent Signal 3 Type; Intent Signal 3 Date; Intent Signal 4 Type; Intent Signal 4 Date,C5,"C5 depends on the number of distinct signal types inside explicit 30- and 90-day windows; undated narrative intent is insufficient."
+Buying Triggers,8,Trigger Type; Trigger Date,C6,"Trigger relevance and recency drive C6; leadership-change triggers also create a mandatory review condition."
+Purchase Timeline & Readiness,9,Purchase Timeline & Readiness,C7,"Determines active evaluation/RFP status and decision horizon; inferred timelines require a score cap and review."
+Competitive Position,10,Incumbent / Competitor; Incumbent Satisfaction; Contract Renewal Date,C8; C12,"Required to distinguish greenfield, dissatisfaction, renewal timing, unknown competition, and locked-incumbent risk."
+Budget Evidence,11,Budget Status,C12,"Budget confirmation is a core C12 win-probability test and cannot be inferred from ACV or intent."
+Expansion Potential,12,Applicable TargetOrate Products; Departments / Units in Scope,C10,"Product applicability and organizational breadth determine cross-sell and expansion potential."
+Existing Relationship,13,Existing Connections & History; Last Contact Date,C13; C14,"Relationship type and recency determine the strength of existing access and contribute to engagement history."
+Contact Coverage & Verification,14,Named Key Contacts; Role Verification Date,C13,"Contact seniority, access, and recent role verification are required for defensible relationship scoring."
+Champion Evidence,15,Champion Status,C14,"An active champion materially strengthens relationship quality and distinguishes direct advocacy from generic engagement."
+Strategic Value Evidence,16,Referenceability Evidence; Partnership Ecosystem Evidence; Annual Revenue ($M); Employee Count,C11,"Supports the market-leader, referenceability, and partnership-potential tests used by C11."
+Customer / Engagement History,17,Customer Status; Last Meeting / Demo / Event Date; Existing Connections & History,C14,"Distinguishes current/former customer status, direct engagement, marketing-only interaction, and no relationship."
+Primary Pain Point,18,Primary Pain Point,C10; Context,"Supports product/use-case rationale and consultant interpretation but does not override the structured C10 evidence."
+Company Context,19,Company Stage; Business Model,C1; Context,"Useful for interpreting ICP alignment and GTM context, but secondary to the explicit industry, size, technology, and geography benchmarks."
+Legacy Narrative Signals,20,Website Research & Behavior; Third-Party Intent Topics; Tech Stack; Buying Trigger; Competitive Context,C3; C5; C6; C8,"Retained for audit/context and backward compatibility. V2 structured fields are authoritative when present; these narrative fields must not substitute for required dated or structured evidence."
