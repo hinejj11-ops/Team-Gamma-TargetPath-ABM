@@ -96,6 +96,16 @@ For every criterion, retain an audit record containing:
 
 For C1–C4, explicitly cite the relevant ICP benchmark in the audit rationale. Do not use an `ICP Qualified` label or any `Ground Truth ... (Validation Only)` field in the account dataset as a substitute for independently evaluating C1–C4.
 
+### C1 Industry / Segment Interpretation
+
+For C1, compare the account against each ICP profile independently.
+
+- A C1 score of 10 requires the account's Industry and Sub-Industry to align to the same ICP profile.
+- Do not combine an Industry match from one ICP profile with a Sub-Industry match from another profile.
+- An ICP category explicitly designated as outside, excluded, or disqualified takes precedence over a broader parent-industry match and results in C1 = 2.
+- Specific ICP exclusions take precedence over general inclusions.
+- Do not use the account's Ground Truth ICP Qualification field when applying these rules.
+
 Before scoring each criterion, consult the Data Requirements Matrix for the expected evidence fields. If those fields are absent or insufficient, apply the rubric's NS/review rules rather than falling back to narrative proxies.
 
 ## Step 4 — Compute Weighted Dimension Roll-ups
