@@ -23,12 +23,14 @@ If a lower-priority source conflicts with a higher-priority source, use the high
 3. **Client ICP:** A completed ICP using the TargetOrate template. For the capstone test workflow, use `examples/TargetOrate_Completed_ICP_Example.md`.
 4. **Client Reference List:** `Client_Target_Reference_Lists.md`.
 5. **Ranking Model:** `data/Criteria_Ranking_Model.csv`.
+6. **FIOR Data Contract:** `data/FIOR_Data_Requirements_Matrix.csv` — defines the account-level evidence fields required to execute C1–C14 consistently.
 
 ## Step 0 — Input Gating and ICP Validation
 
 Before scoring any account:
 
-- Confirm all five required inputs are available and readable.
+- Confirm the scoring inputs and FIOR Data Contract are available and readable.
+- Validate the account dataset against `data/FIOR_Data_Requirements_Matrix.csv` before scoring. The matrix is the schema/evidence contract connecting each FIOR criterion to the fields needed to score it.
 - Confirm the ICP defines enough client-specific information to evaluate:
   - C1 Industry / Segment Match;
   - C2 Company Size & Revenue;
@@ -48,8 +50,17 @@ Before scoring any account:
 - Read the completed ICP and map its fields to the relevant FIOR criteria.
 - Read the client reference list only for parameters not owned by the ICP or for TargetOrate-specific product/strategic benchmarks.
 - Read the ranking model to understand field importance and review priority.
+- Read the FIOR Data Requirements Matrix and use it to identify missing, malformed, stale, or insufficient account evidence before criterion scoring.
 
 Do not use outside knowledge unless the user explicitly authorizes external research.
+
+### Validation-only assets — prohibited during normal scoring
+
+The `/validation/` directory contains post-run testing assets, including `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv`. **Do not read, retrieve, inspect, or use any file in `/validation/` while scoring accounts.** Those files are an answer key for blind validation after a scoring run is complete.
+
+Likewise, any account field labeled `Ground Truth ... (Validation Only)`, including `Ground Truth ICP Qualification (Validation Only)`, is excluded from all FIOR evidence and must not influence C1–C14, dimension scores, totals, tiers, confidence, or review status.
+
+If a user explicitly requests a validation comparison after an independent scoring run has already been completed, the validation-only assets may then be read solely to compare predicted versus expected results.
 
 ## Step 2 — Apply FIOR Scoring and Missing-Data Rules
 
@@ -82,7 +93,9 @@ For every criterion, retain an audit record containing:
 - Confidence level; and
 - Review flag/reason.
 
-For C1–C4, explicitly cite the relevant ICP benchmark in the audit rationale. Do not use an `ICP Qualified` label in the account dataset as a substitute for independently evaluating C1–C4.
+For C1–C4, explicitly cite the relevant ICP benchmark in the audit rationale. Do not use an `ICP Qualified` label or any `Ground Truth ... (Validation Only)` field in the account dataset as a substitute for independently evaluating C1–C4.
+
+Before scoring each criterion, consult the Data Requirements Matrix for the expected evidence fields. If those fields are absent or insufficient, apply the rubric's NS/review rules rather than falling back to narrative proxies.
 
 ## Step 4 — Compute Weighted Dimension Roll-ups
 
