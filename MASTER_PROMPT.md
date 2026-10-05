@@ -117,6 +117,18 @@ For structured intent and trigger evidence, distinguish a populated record from 
 - Blank/unknown values remain missing evidence and follow the NS rules. Explicit absence is not the same as missing data.
 - Structured V2 evidence remains authoritative over legacy narrative fields.
 
+### C13 Relationship-Evidence Precedence
+
+For C13, separate relationship evidence from contact identity/title evidence.
+
+- `Existing Connections & History` is authoritative for relationship strength and determines whether the account has an active relationship, a warm/mutual connection, a weak link, or no connection.
+- `Named Key Contacts` may establish the identity and seniority of known people but cannot, by itself, establish an active or warm relationship.
+- Do not upgrade C13 because a CEO, CIO, VP, director, or other senior person appears in `Named Key Contacts` unless `Existing Connections & History` supports the corresponding relationship band.
+- Marketing-only engagement remains weak relationship evidence for C13.
+- Explicit cold/zero-touch evidence scores C13 = 2 even when senior contacts are named.
+- Warm-introduction, mutual-connection, and past-event evidence must be scored according to the rubric's relationship bands, then apply contact/role recency caps.
+- If `Existing Connections & History` is blank, return NS rather than inferring a relationship from named contacts.
+
 Before scoring each criterion, consult the Data Requirements Matrix for the expected evidence fields. If those fields are absent or insufficient, apply the rubric's NS/review rules rather than falling back to narrative proxies.
 
 ## Step 4 — Compute Weighted Dimension Roll-ups
