@@ -106,6 +106,17 @@ For C1, compare the account against each ICP profile independently.
 - Specific ICP exclusions take precedence over general inclusions.
 - Do not use the account's Ground Truth ICP Qualification field when applying these rules.
 
+### C5/C6 Explicit-Absence Interpretation
+
+For structured intent and trigger evidence, distinguish a populated record from a positive event.
+
+- Values explicitly stating absence, including `Verified no website signal`, `Verified no content signal`, `Verified no third-party signal`, `Verified no sales signal`, `Verified no trigger`, and `No trigger identified`, are negative evidence. They must not be counted as positive signals or triggers.
+- A date paired with an explicit-negative value dates the verification of absence; it does not convert that record into a positive event.
+- For C5, count only affirmative/positive structured signal types when applying the 30/90-day bands. If all available structured categories affirmatively show no signal within the relevant window, C5 = 2.
+- For C6, an explicit structured no-trigger value with no positive structured trigger scores C6 = 2.
+- Blank/unknown values remain missing evidence and follow the NS rules. Explicit absence is not the same as missing data.
+- Structured V2 evidence remains authoritative over legacy narrative fields.
+
 Before scoring each criterion, consult the Data Requirements Matrix for the expected evidence fields. If those fields are absent or insufficient, apply the rubric's NS/review rules rather than falling back to narrative proxies.
 
 ## Step 4 — Compute Weighted Dimension Roll-ups
