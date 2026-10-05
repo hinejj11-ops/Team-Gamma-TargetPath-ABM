@@ -18,7 +18,7 @@ The repository includes a **synthetic completed ICP example** so the capstone wo
 - `MASTER_PROMPT.md` — master execution instructions, source hierarchy, validation, scoring, and output requirements.
 - `Client_Target_Reference_Lists.md` — TargetOrate-level product, expansion, strategic-value, win-rate, and baseline reference parameters.
 - `data/Criteria_Ranking_Model.csv` — 1–20 data-importance hierarchy used for data-gap severity and review priority.
-- `examples/TargetOrate_Completed_ICP_Example.xlsx` — completed **synthetic** ICP demonstrating the required client input.
+- `examples/TargetOrate_Completed_ICP_Example.md` — completed **synthetic, machine-readable** ICP demonstrating the required client input.
 - `20_Company_Dataset_Week5_MVP.csv` — synthetic 20-company test dataset.
 
 ## Source-of-Truth Hierarchy
@@ -33,7 +33,7 @@ The rubric governs *how* to score. The ICP defines *what a good-fit client accou
 
 1. Load this repository into the enterprise LLM.
 2. Upload the candidate account dataset.
-3. Ensure a completed client ICP is available. For the capstone test, use `examples/TargetOrate_Completed_ICP_Example.xlsx`.
+3. Ensure a completed client ICP is available. For the capstone test, use `examples/TargetOrate_Completed_ICP_Example.md`.
 4. Run:
 
 > *"Using the instructions in MASTER_PROMPT.md, the FIOR rubric, the completed ICP, the client reference lists, and the ranking model in this repository, evaluate all accounts in the attached dataset and output the final scored ABM portfolio table."*
