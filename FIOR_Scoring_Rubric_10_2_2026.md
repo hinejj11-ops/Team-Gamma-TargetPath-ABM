@@ -236,7 +236,15 @@ Evidence: named contacts with title, last contact date and role verification dat
 | 4 | Weak links only, such as the same network or a past event meeting |
 | 2 | The record shows no connections |
 
-Rules: if the contact's role was not verified in the last 6 months, cap the score at 6 and flag for review. A blank connections field is NS.
+Rules:
+- **Relationship-strength precedence:** `Existing Connections & History` determines whether a relationship is active, warm/mutual, weak, or absent. `Named Key Contacts` establishes who is known and their title; a senior title alone does not prove an active relationship.
+- A named VP, C-suite executive, director, or manager may satisfy the title component of a scoring band only when the relationship evidence independently supports that band.
+- Marketing-only engagement such as webinar registration or nurture-email activity is a weak connection for C13 and does not become an active executive relationship merely because a senior contact is named.
+- A cold account or explicit statement of zero prior touchpoints scores C13 = 2 even when named contacts are present.
+- A warm introduction or named mutual connection may support the 8 or 6 band as specified above, depending on whether an executive introduction is actually available.
+- Past-event or conference contact without evidence of an ongoing active relationship remains in the weak-link band.
+- If the contact's role was not verified in the last 6 months, cap the score at 6 and flag for review.
+- A blank `Existing Connections & History` field is NS. Do not infer relationship strength from `Named Key Contacts` alone.
 
 ### 14. Engagement History
 
