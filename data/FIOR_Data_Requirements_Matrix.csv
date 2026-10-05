@@ -1,0 +1,15 @@
+Criterion,Criterion Name,Required V2 Fields,Evidence Standard,Current Coverage,Schema Action,Missing / Review Rule
+C1,Industry / Segment Match,Industry; Sub-Industry,Industry + sub-industry compared with completed ICP,Yes,Keep,Blank industry/subindustry -> NS; category disagreement -> review
+C2,Company Size,Employee Count; Annual Revenue ($M),Both measures compared with ICP range,Yes,Keep,Revenue estimate/unusual revenue per employee -> review
+C3,Technology Stack,CRM / Sales Engagement; Cloud Infrastructure; Data / Analytics; Intent / ABM Platform; Marketing Automation; Technology Evidence Date,Required/preferred/incompatible technology evidence,Partial,Expand,Thin/incomplete tech -> NS
+C4,Geography / Compliance,Geography; SOC 2 Type II; ISO 27001; GDPR Ready; HIPAA Ready; Compliance Evidence Date,Served geography plus applicable compliance frameworks,Partial,Expand,Absent compliance -> NS
+C5,Intent Signals,Intent Signal 1–4 Type + Date,Distinct signal types with dates sufficient for 30/90-day windows,Partial,Add dates,Blank -> NS; >90d absent
+C6,Buying Triggers,Trigger Type; Trigger Date,Relevant trigger type + event date,Partial,Add dates,Leadership change -> review
+C7,Decision Timeline,Purchase Timeline & Readiness,Explicit RFP/evaluation/decision horizon,Mostly,Standardize,"If inferred, cap at 6 + review"
+C8,Competitive Context,Incumbent / Competitor; Incumbent Satisfaction; Contract Renewal Date,"Incumbent, satisfaction, and renewal timing",Partial,Split fields,Unknown renewal -> band 4
+C9,Annual Contract Value,Target ACV ($),Estimated first-year ACV,Yes,Keep,Edge values follow rubric
+C10,Expansion Potential,Applicable TargetOrate Products; Departments / Units in Scope,Product count + organizational breadth,Partial,Expand,Cite reason for products counted
+C11,Strategic Value,Annual Revenue ($M); Employee Count; Referenceability Evidence; Partnership Ecosystem Evidence,Market leader + referenceability + partnership tests,Partial,Add evidence,Do not award unavailable tests
+C12,Win Probability,Budget Status; Competitive Context; TargetOrate historical baseline,Budget + competition + similar-deal win baseline,Partial,Add budget evidence,Do not infer budget
+C13,Existing Connections,Existing Connections & History; Named Key Contacts; Last Contact Date; Role Verification Date,Relationship level + title + recency + role verification,Partial,Add dates,Unverified role >6mo caps at 6 + review
+C14,Engagement History,Champion Status; Customer Status; Last Meeting / Demo / Event Date; Existing Connections & History,Customer/champion/direct engagement evidence,Mostly,Standardize,Unhappy churn -> review
