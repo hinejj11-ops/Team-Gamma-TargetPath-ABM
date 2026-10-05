@@ -106,6 +106,17 @@ For C1, compare the account against each ICP profile independently.
 - Specific ICP exclusions take precedence over general inclusions.
 - Do not use the account's Ground Truth ICP Qualification field when applying these rules.
 
+### C3 Technology Evidence Interpretation
+
+For C3, distinguish missing technology evidence from affirmative evidence that a required technology is absent.
+
+- Blank, unknown, or unverified required structured technology fields are missing evidence, not evidence of absence.
+- Assign a low numeric C3 band only when the structured record affirmatively shows a required technology is absent or identifies a competing/incompatible platform.
+- Compute required-stack coverage only when every required technology category has an affirmative present/absent determination. If unresolved required categories could change the scoring band, return C3 = NS.
+- Preferred technology evidence affects the 10-versus-8 distinction only after the required stack is affirmatively established.
+- A Technology Evidence Date dates the record but does not convert blank categories into verified absences.
+- Do not use the legacy narrative Tech Stack field to replace blank required V2 technology fields.
+
 ### C5/C6 Explicit-Absence Interpretation
 
 For structured intent and trigger evidence, distinguish a populated record from a positive event.
