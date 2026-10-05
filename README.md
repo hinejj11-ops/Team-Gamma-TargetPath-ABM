@@ -18,8 +18,11 @@ The repository includes a **synthetic completed ICP example** so the capstone wo
 - `MASTER_PROMPT.md` — master execution instructions, source hierarchy, validation, scoring, and output requirements.
 - `Client_Target_Reference_Lists.md` — TargetOrate-level product, expansion, strategic-value, win-rate, and baseline reference parameters.
 - `data/Criteria_Ranking_Model.csv` — 1–20 data-importance hierarchy used for data-gap severity and review priority.
+- `data/FIOR_Data_Requirements_Matrix.csv` — formal C1–C14 data contract mapping each criterion to required evidence fields and missing-data/review behavior.
+- `data/20_Company_Dataset_Week6_Validation.csv` — V2 synthetic validation dataset with structured, dated evidence for rubric testing.
 - `examples/TargetOrate_Completed_ICP_Example.md` — completed **synthetic, machine-readable** ICP demonstrating the required client input.
-- `20_Company_Dataset_Week5_MVP.csv` — synthetic 20-company test dataset.
+- `20_Company_Dataset_Week5_MVP.csv` — original synthetic MVP dataset retained for comparison.
+- `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv` — quarantined answer key used **only after** a blind scoring run.
 
 ## Source-of-Truth Hierarchy
 
@@ -37,6 +40,14 @@ The rubric governs *how* to score. The ICP defines *what a good-fit client accou
 4. Run:
 
 > *"Using the instructions in MASTER_PROMPT.md, the FIOR rubric, the completed ICP, the client reference lists, and the ranking model in this repository, evaluate all accounts in the attached dataset and output the final scored ABM portfolio table."*
+
+## Validation Boundary
+
+Normal scoring may use the rubric, completed ICP, client reference lists, ranking model, Data Requirements Matrix, and the selected account dataset.
+
+**Normal scoring must not read or use anything under `/validation/`.** The expected-results file is intentionally separated so the model cannot see the answer key before producing its independent scores. The same prohibition applies to any dataset column labeled `Ground Truth ... (Validation Only)`.
+
+After a blind run is complete, the validation answer key may be used to calculate criterion-level agreement, total-score error, tier accuracy, and review-trigger accuracy.
 
 ## Input Validation
 
