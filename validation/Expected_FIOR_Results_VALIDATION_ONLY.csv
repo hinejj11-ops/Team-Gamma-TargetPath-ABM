@@ -2,20 +2,20 @@ Company Name,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,Expected Fit /35,Exp
 CloudBridge Solutions,10,10,10,10,10,8,10,2,6,10,10,8,4,8,35.0,18.8,25.5,6.0,85,Tier 1,Acceptable
 Nexis Cloud Systems,10,10,10,8,8,8,10,4,8,8,6,2,8,8,33.2,18.8,18.0,8.0,78,Tier 2,Review
 Aegis Tech Group,10,10,10,NS,6,8,10,4,8,8,2,8,4,8,35.0,17.5,19.5,6.0,78,Tier 2,Review
-Vanguard Integrators,10,10,4,10,4,8,8,8,8,4,6,4,2,8,29.8,17.5,16.5,5.0,69,Tier 2,Acceptable
+Vanguard Integrators,10,10,NS,10,4,8,8,NS,8,4,6,2,2,8,35.0,16.7,15.0,5.0,72,Tier 2,Acceptable
 Pioneer Digital Services,10,10,NS,10,NS,8,10,4,6,10,8,2,2,8,35.0,18.3,19.5,5.0,78,Tier 2,Review
-Apex ServiceNow Partner,10,10,10,8,10,8,2,4,8,8,6,8,8,8,33.2,15.0,22.5,8.0,79,Tier 2,Review
+Apex ServiceNow Partner,8,10,10,4,10,8,2,4,8,8,6,8,8,8,28.0,15.0,22.5,8.0,74,Tier 2,Review
 Summit IT Consulting,10,10,10,NS,8,8,4,4,8,8,8,2,2,8,35.0,15.0,19.5,5.0,74,Tier 2,Review
 Optima Cloud Solutions,10,10,10,10,6,8,10,4,8,4,2,8,4,8,35.0,17.5,16.5,6.0,75,Tier 2,Acceptable
-BlueMatrix Technologies,10,10,4,10,4,8,4,4,8,10,8,2,2,8,29.8,12.5,21.0,5.0,68,Tier 2,Acceptable
-Stratagem Software,10,10,NS,8,2,8,4,4,8,8,8,2,4,10,32.7,11.2,19.5,7.0,70,Tier 2,Review
-Meridian IT Solutions,10,10,10,NS,10,8,10,8,6,8,6,10,4,10,35.0,22.5,22.5,7.0,87,Tier 1,Review
-Crestview Cloud Group,10,10,10,NS,8,8,4,4,8,4,2,2,4,8,35.0,15.0,12.0,6.0,68,Tier 2,Review
+BlueMatrix Technologies,10,10,NS,10,4,8,4,4,8,10,8,2,2,8,35.0,12.5,21.0,5.0,74,Tier 2,Acceptable
+Stratagem Software,10,10,NS,4,2,8,4,4,8,8,8,2,4,10,28.0,11.3,19.5,7.0,66,Tier 2,Review
+Meridian IT Solutions,10,10,10,NS,10,8,10,NS,6,8,6,8,4,10,35.0,23.3,21.0,7.0,86,Tier 1,Review
+Crestview Cloud Group,8,10,10,NS,8,8,4,4,8,4,2,2,4,8,32.7,15.0,12.0,6.0,66,Tier 2,Review
 OmniTech Systems,2,10,10,10,6,8,4,4,8,10,10,2,4,10,28.0,13.8,22.5,7.0,71,Tier 2,Acceptable
-Pinnacle Enterprise Tech,10,10,4,8,4,6,4,4,8,8,6,2,4,10,28.0,11.2,18.0,7.0,64,Tier 2,Acceptable
-Veritas Cloud Partners,10,10,NS,NS,NS,6,4,8,6,8,2,4,10,8,35.0,15.0,15.0,9.0,74,Tier 2,Review
-AlphaCentric IT,10,10,10,10,10,6,4,8,8,4,8,10,8,10,35.0,17.5,22.5,9.0,84,Tier 1,Acceptable
+Pinnacle Enterprise Tech,10,10,NS,4,4,6,4,4,8,8,6,2,4,10,28.0,11.3,18.0,7.0,64,Tier 2,Acceptable
+Veritas Cloud Partners,10,10,NS,NS,NS,6,4,NS,6,8,2,2,10,8,35.0,12.5,13.5,9.0,70,Tier 2,Review
+AlphaCentric IT,8,10,10,10,10,6,4,NS,8,4,8,8,8,10,33.3,16.7,21.0,9.0,80,Tier 1,Acceptable
 Novus Tech Services,2,2,10,10,8,2,2,2,8,10,6,2,4,8,21.0,8.8,19.5,6.0,55,Tier 3,Acceptable
 Quantum Integration Group,2,2,2,8,6,2,2,2,8,8,2,2,2,8,12.2,7.5,15.0,5.0,40,Tier 3,Acceptable
-Zenith Software Partners,2,2,4,NS,4,2,2,2,8,8,6,2,4,8,9.3,6.2,18.0,6.0,40,Tier 3,Review
+Zenith Software Partners,2,2,NS,NS,4,2,2,2,8,8,6,2,4,8,7.0,6.3,18.0,6.0,37,Nurture / Disqualify,Review
 Helix Cloud Solutions,2,2,2,10,2,2,2,2,8,4,6,2,2,8,14.0,5.0,15.0,5.0,39,Nurture / Disqualify,Acceptable
