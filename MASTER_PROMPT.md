@@ -49,7 +49,7 @@ Before scoring any account:
 - Read the FIOR rubric and preserve its exact scoring anchors.
 - Read the completed ICP and map its fields to the relevant FIOR criteria.
 - Read the client reference list only for parameters not owned by the ICP or for TargetOrate-specific product/strategic benchmarks.
-- Read the ranking model to understand field importance and review priority.
+- Read the ranking model to understand **evidence-category** importance and review priority. Each rank maps to one or more V2 source fields; apply the rank to the evidence category as a whole, not independently to every column in that category.
 - Read the FIOR Data Requirements Matrix and use it to identify missing, malformed, stale, or insufficient account evidence before criterion scoring.
 
 Do not use outside knowledge unless the user explicitly authorizes external research.
@@ -69,7 +69,8 @@ The **FIOR rubric's missing-data rule is authoritative**:
 - A blank, unknown, or unavailable field is **not evidence of absence**.
 - Return `NS` when the evidence required by the rubric is unavailable.
 - Assign a low score such as 2 only when the account record affirmatively demonstrates that the signal/condition is absent or falls in that rubric band.
-- Never substitute an assumed value solely because a field has a high rank in the Criteria Ranking Model.
+- Never substitute an assumed value solely because an evidence category has a high rank in the Criteria Ranking Model.
+- When both a V2 structured field and a legacy narrative field describe the same concept, use the structured V2 evidence. Legacy narrative fields are Rank 20 context/backward-compatibility evidence and may not replace required dates, compliance status, technology categories, budget evidence, or other structured fields.
 
 Use the ranking model to determine **severity and review priority**, not to override the rubric:
 
