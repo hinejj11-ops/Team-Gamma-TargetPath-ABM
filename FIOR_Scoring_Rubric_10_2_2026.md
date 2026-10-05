@@ -110,7 +110,12 @@ Evidence: third party surge topics, website visits, content downloads, keyword a
 | 4 | One signal type in the last 90 days, or only generic activity (for example a homepage visit) |
 | 2 | The record shows no signals in 90 days |
 
-Rule: a blank intent field is NS, not 2.
+Rules:
+- A blank intent field is NS, not 2.
+- An explicit negative value such as `Verified no website signal`, `Verified no content signal`, `Verified no third-party signal`, or `Verified no sales signal` is affirmative evidence of absence, not an intent signal.
+- Do not count the date attached to an explicit negative value as a signal event. The date establishes when the absence was verified.
+- If every populated structured intent category within the 90-day window affirmatively states that no signal was present and there are no positive structured signals, score C5 = 2.
+- Positive and explicit-negative records may coexist. Count only positive signal types when applying the 30/90-day scoring bands.
 
 ### 6. Buying Triggers & Trigger Events
 
@@ -123,6 +128,12 @@ Evidence: funding, leadership change, technology migration, contract renewal, pr
 | 6 | One loosely relevant trigger in the last 6 months, or a relevant trigger 6 to 12 months old |
 | 4 | Only a trigger older than 12 months, or an irrelevant one |
 | 2 | No triggers found |
+
+Rules:
+- An explicit negative value such as `Verified no trigger`, `No trigger identified`, or an equivalent structured statement is affirmative evidence that no buying trigger was found and scores C6 = 2 when no positive structured trigger is present.
+- Do not treat the date attached to an explicit negative trigger record as evidence that a trigger occurred. The date establishes when the absence was verified.
+- A blank Trigger Type is missing evidence and follows the global NS rule; it is not equivalent to `Verified no trigger`.
+- When structured Trigger Type / Trigger Date evidence is present, legacy narrative trigger fields may not override it.
 
 Flag trigger: the trigger is a leadership change (the named leader may have moved on again).
 
