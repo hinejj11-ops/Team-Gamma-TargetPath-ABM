@@ -19,7 +19,7 @@ If a lower-priority source conflicts with a higher-priority source, use the high
 ## Required Inputs
 
 1. **Account Dataset:** Candidate-account CSV or equivalent structured file.
-2. **FIOR Rubric:** `FIOR_Scoring_Rubric_10_02_2026.md`.
+2. **FIOR Rubric:** `FIOR_Scoring_Rubric_10_2_2026.md`.
 3. **Client ICP:** A completed ICP using the TargetOrate template. For the capstone test workflow, use `examples/TargetOrate_Completed_ICP_Example.md`.
 4. **Client Reference List:** `Client_Target_Reference_Lists.md`.
 5. **Ranking Model:** `data/Criteria_Ranking_Model.csv`.
