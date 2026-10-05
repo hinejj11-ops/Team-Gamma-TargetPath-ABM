@@ -1,4 +1,4 @@
-# TargetPath AI ABM Workflow Toolkit — MVP
+# TargetPath AI ABM Workflow Toolkit — MVP v1.0
 **Team Gamma | Auburn University Harbert College of Business (MBA Capstone, Fall 2026)**
 
 ## Purpose
@@ -62,7 +62,14 @@ The AI produces recommendations, evidence trails, confidence, data-gap flags, an
 
 Everything under `/validation/` is quarantined during normal scoring and blind test execution. Validation assets may be opened only after the independent run has been completed and locked.
 
-The synthetic 20-company validation set and original expected-results key preserve the reproducible blind benchmark. `validation/Adjudication_Log.md` documents the subsequent human examination of residual disagreements without rewriting historical test results.
+The synthetic 20-company validation set uses versioned validation keys so historical and current testing are not conflated:
+
+- `validation/Expected_FIOR_Results_ITERATION6_ORIGINAL.csv` preserves the original Iteration 6 answer key used to reproduce the historical blind benchmark.
+- `validation/Expected_FIOR_Results_ADJUDICATED_WORKING.csv` preserves the post-adjudication working key for future regression testing.
+- `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv` is retained for backward compatibility and currently mirrors the adjudicated working key.
+- `validation/Adjudication_Log.md` documents why the historical and working keys differ.
+
+Do not compare a new run to one key while reporting metrics from the other.
 
 Iteration 6 baseline:
 - Raw criterion agreement: **255/280 (91.1%)**
@@ -95,4 +102,6 @@ The toolkit qualifies as minimum viable when a new consultant can, using this RE
 - publish the standard portfolio and account-summary outputs; and
 - validate a test run without leaking expected results into scoring.
 
-The next project step is an end-to-end usability test against these acceptance conditions, not additional score tuning.
+The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptance_Test.md`. All 13 functional acceptance conditions passed; two minor documentation/version-control issues identified by the test are corrected in the MVP v1.0 cleanup.
+
+**MVP v1.0 status: Accepted.** Future scoring-rule changes should be treated as post-MVP enhancements and tested as separate iterations.
