@@ -1,5 +1,5 @@
 Criterion,Criterion Name,Required V2 Fields,Evidence Standard,Current Coverage,Schema Action,Missing / Review Rule
-C1,Industry / Segment Match,Industry; Sub-Industry,Industry + sub-industry compared with completed ICP,Yes,Keep,Blank industry/subindustry -> NS; category disagreement -> review
+C1,Industry / Segment Match,Industry; Sub-Industry,"Compare Industry and Sub-Industry against each completed ICP profile independently. Score 10 only when both align to the same primary ICP profile. Explicit ICP exclusions override broader industry matches and score 2. Do not combine matches across different ICP profiles.",Yes,Keep,Blank industry/subindustry -> NS; category disagreement -> review
 C2,Company Size,Employee Count; Annual Revenue ($M),Both measures compared with ICP range,Yes,Keep,Revenue estimate/unusual revenue per employee -> review
 C3,Technology Stack,CRM / Sales Engagement; Cloud Infrastructure; Data / Analytics; Intent / ABM Platform; Marketing Automation; Technology Evidence Date,Required/preferred/incompatible technology evidence,Partial,Expand,Thin/incomplete tech -> NS
 C4,Geography / Compliance,Geography; SOC 2 Type II; ISO 27001; GDPR Ready; HIPAA Ready; Compliance Evidence Date,Served geography plus applicable compliance frameworks,Partial,Expand,Absent compliance -> NS
