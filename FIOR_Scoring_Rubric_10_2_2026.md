@@ -30,17 +30,27 @@ Score one account on the 14 FIOR criteria using only the evidence in the account
 
 ### 1. Industry / Segment Match
 
-Evidence: industry and sub segment fields, company description, ICP target industry list.
+Evidence: industry and sub-industry fields, company description, and ICP target industry/sub-industry definitions.
+
+Evaluate the account against each ICP profile independently. An industry match from one ICP profile and a sub-industry match from a different ICP profile may not be combined to create a stronger match. Use the single ICP profile that produces the strongest fully supported fit.
 
 | Score | Condition |
 | --- | --- |
-| 10 | Industry and sub segment both match a primary ICP industry |
-| 8 | Primary ICP industry matches; sub segment is adjacent or not specified |
-| 6 | Industry is listed as secondary or adjacent in the ICP |
-| 4 | Not in the ICP, but the company serves the ICP's target buyers |
-| 2 | Outside the ICP with no logical link |
+| 10 | Industry and sub-industry both match the same primary ICP profile |
+| 8 | Industry matches a primary ICP profile and the sub-industry is adjacent, unspecified, or otherwise compatible with that same profile |
+| 6 | Industry or sub-industry matches a secondary/adjacent category explicitly recognized by the ICP, but the account does not fully satisfy a primary profile |
+| 4 | Industry/sub-industry is not listed in the ICP, but the account demonstrably serves the ICP's target buyers or use case |
+| 2 | Account is explicitly outside/excluded by the ICP, or has no supported logical link to an ICP profile |
 
-Flag trigger: the data provider's category and the company description point to different industries. Return the better fit score and send to review.
+Rules:
+
+1. **Same-profile rule:** Industry and sub-industry must match the same ICP profile to receive a score of 10. Do not combine an industry from one ICP profile with a sub-industry from another profile.
+2. **Explicit-exclusion rule:** If the ICP explicitly identifies the account's industry, sub-industry, use case, or business category as outside the ICP, score C1 = 2. An otherwise matching parent industry does not override an explicit exclusion.
+3. **Specific-over-general rule:** When a specific sub-industry/use-case classification conflicts with a broader industry classification, the more specific classification governs when the ICP explicitly addresses it.
+4. Do not infer an industry or sub-industry from unrelated fields solely to improve the score.
+5. If the industry/sub-industry evidence itself is missing or genuinely contradictory, apply the global NS/review rules rather than assuming a fit.
+
+Flag trigger: if account evidence contains materially conflicting industry classifications that cannot be resolved using the ICP hierarchy above, score using the best fully supported classification and route the account to consultant review.
 
 ### 2. Company Size
 
