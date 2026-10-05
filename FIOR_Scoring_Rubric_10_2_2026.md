@@ -98,7 +98,14 @@ Evidence: headquarters and operating regions, certifications held, ICP geography
 | 4 | A required compliance item is missing, in a target or adjacent geography |
 | 2 | Outside the served geography, or a regulatory blocker |
 
-Rule: if compliance data is absent from the record, return NS.
+Rules:
+- **Unknown-versus-failed rule:** A blank, `Unknown`, or otherwise unverified applicable compliance field is missing evidence, not evidence that the requirement failed. If unresolved compliance evidence could change the applicable scoring band, return C4 = NS.
+- **Affirmative-gap rule:** Score the required-compliance-missing band only when the structured record affirmatively states that an applicable required framework is not met (for example `No`, `Not certified`, `Not ready`, or equivalent verified negative evidence).
+- **Applicability rule:** Evaluate only compliance frameworks required by the governing ICP profile and geography/use case. A blank or negative value for a framework that is not applicable must not reduce C4.
+- **Noncritical-gap rule:** The 8 band requires affirmative evidence that all required compliance is met plus one explicitly identified noncritical compliance gap. Do not use `Unknown` as a noncritical gap.
+- **Regulatory-blocker rule:** Score 2 only when the record affirmatively establishes a regulatory blocker or an outside/unserved geography; do not infer a blocker from missing compliance data.
+- A populated Compliance Evidence Date establishes recency but does not prove that blank or `Unknown` compliance fields were checked and failed.
+- Structured V2 compliance fields are authoritative; legacy narrative fields may provide context but may not replace missing required structured compliance evidence.
 
 ---
 
