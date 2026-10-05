@@ -78,7 +78,13 @@ Evidence: detected technologies, ICP required and preferred technology lists. "C
 | 4 | Fewer than three quarters of required present |
 | 2 | None present, or a directly competing or incompatible platform |
 
-Rule: if the technology record is thin or incomplete, return NS instead of a low score.
+Rules:
+- **Missing-versus-absent rule:** A blank, unknown, or otherwise unverified required technology field is missing evidence and returns C3 = NS when the record is too incomplete to determine required-stack coverage. Do not convert a blank field into evidence that the technology is absent.
+- **Affirmative-absence rule:** A low numeric band is permitted only when the structured technology record affirmatively establishes that required technology is not present, or identifies a directly competing/incompatible platform. Examples include an explicit `None`, `Not present`, verified absence, or a named incompatible platform in the applicable structured field.
+- **Coverage denominator rule:** Calculate the fraction of required technologies present only when each required technology category has an affirmative present/absent determination. If one or more required categories are blank/unknown and their status could change the applicable scoring band, return NS instead of estimating a percentage from the populated fields.
+- Preferred technology fields may affect the 10-versus-8 distinction only after all required technologies are affirmatively confirmed present. A blank preferred field does not by itself make required-stack evidence incomplete.
+- A populated Technology Evidence Date establishes recency; it does not prove that blank technology categories were checked and found absent.
+- Structured V2 technology fields are authoritative. Legacy narrative technology-stack fields may provide audit context but may not fill blank required structured categories.
 
 ### 4. Geography / Compliance Ready
 
