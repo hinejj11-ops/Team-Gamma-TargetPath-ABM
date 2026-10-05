@@ -259,6 +259,15 @@ Evidence: customer status, champion field, meeting, demo and event history, chur
 | 3 | Former customer who churned unhappy (flag for review) |
 | 2 | No prior engagement |
 
+Rules:
+- **Customer-status precedence:** Explicit customer status is evaluated first. A current customer in good standing scores 10. A former customer in good standing scores at least 8. An unhappy churn scores 3 and triggers review; a champion label does not override an explicit unhappy-churn status.
+- **Active-champion rule:** A champion status that explicitly describes current internal advocacy or active support qualifies as an identified and active champion and scores 10. Examples include `Strong Champion: Former user advocating internally` and `Identified: VP Mktg actively pushing for evaluation`.
+- **Identified-but-not-active rule:** A champion is scored 8 only when the record identifies a champion but does not establish current advocacy/action or explicitly indicates no purchase/activation.
+- **Emerging/moderate support:** Labels such as `Emerging Champion` or `Moderate Champion` are not automatically active champions. Use the description: if it shows current advocacy/action, score 10; if it shows support or pain without active advocacy, score 8.
+- **No-champion rule:** `None identified`, gatekeeper-only evidence, or equivalent negative champion evidence does not create engagement. Use documented direct/marketing engagement to select 6, 4, or 2.
+- Do not infer an active champion solely from a senior title in `Named Key Contacts`.
+- When champion evidence and engagement-history evidence conflict, use the more specific structured customer/champion evidence and flag material contradictions for review.
+
 ---
 
 ## Total score, tier and dimension status

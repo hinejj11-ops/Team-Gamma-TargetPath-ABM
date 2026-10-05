@@ -129,6 +129,18 @@ For C13, separate relationship evidence from contact identity/title evidence.
 - Warm-introduction, mutual-connection, and past-event evidence must be scored according to the rubric's relationship bands, then apply contact/role recency caps.
 - If `Existing Connections & History` is blank, return NS rather than inferring a relationship from named contacts.
 
+### C14 Champion / Engagement Interpretation
+
+For C14, distinguish an active champion from a merely identified or supportive contact.
+
+- Evaluate explicit Customer Status first. Current customer in good standing = 10; former customer in good standing = at least 8; unhappy churn = 3 plus review.
+- Champion descriptions showing current internal advocacy or active action qualify for the active-champion band of 10. Examples include `Strong Champion: Former user advocating internally` and `Identified: VP Mktg actively pushing for evaluation`.
+- A champion that is identified but not shown to be actively advocating remains in the 8 band.
+- `Emerging Champion` and `Moderate Champion` labels require the accompanying description to determine whether advocacy is active; pain/support alone does not automatically equal active advocacy.
+- `None identified` or gatekeeper-only champion evidence does not increase C14. Score from documented direct or marketing engagement instead.
+- Named senior contacts alone do not establish a champion.
+- Structured Customer Status and Champion Status take precedence over generic engagement narrative when they conflict; flag material contradictions for consultant review.
+
 Before scoring each criterion, consult the Data Requirements Matrix for the expected evidence fields. If those fields are absent or insufficient, apply the rubric's NS/review rules rather than falling back to narrative proxies.
 
 ## Step 4 — Compute Weighted Dimension Roll-ups
