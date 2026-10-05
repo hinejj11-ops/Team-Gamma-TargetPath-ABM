@@ -117,6 +117,19 @@ For C3, distinguish missing technology evidence from affirmative evidence that a
 - A Technology Evidence Date dates the record but does not convert blank categories into verified absences.
 - Do not use the legacy narrative Tech Stack field to replace blank required V2 technology fields.
 
+### C4 Geography / Compliance Evidence Interpretation
+
+For C4, distinguish unknown compliance status from affirmative failure of an applicable compliance requirement.
+
+- Blank, `Unknown`, or unverified applicable compliance fields are missing evidence, not failed compliance.
+- Assign the required-compliance-gap band only when structured evidence affirmatively states that an applicable required framework is not met.
+- Determine applicability from the governing ICP profile, geography, and use case before interpreting individual compliance fields. Non-applicable frameworks must not reduce the score.
+- The 8 band requires required compliance to be affirmatively satisfied plus an explicitly identified noncritical gap; `Unknown` is not a noncritical gap.
+- Assign C4 = 2 for compliance only when an affirmative regulatory blocker is documented. Missing evidence alone cannot establish a blocker.
+- A Compliance Evidence Date dates the record but does not convert blank or `Unknown` fields into verified failures.
+- Structured V2 compliance evidence remains authoritative over legacy narrative fields.
+- If unresolved applicable compliance evidence could change the band, return C4 = NS and route according to the missing-data/review rules.
+
 ### C5/C6 Explicit-Absence Interpretation
 
 For structured intent and trigger evidence, distinguish a populated record from a positive event.
