@@ -334,9 +334,9 @@ This one rule replaces three earlier rules that disagreed: the global missing da
 
 **The test behind every trigger.** A step goes to a human only when at least one of these is true: (a) the value is a judgment the rubric cannot settle (conflicting industry classification, a strategic outlier, rubric ambiguity); (b) the evidence cannot be checked from the record (an inferred timeline, ACV or competitor status, a role not verified in 6 months, low confidence); (c) the recommendation could flip on a small change (a total within 2 points of a cutoff, or a missing value whose bounds straddle a tier); or (d) the cost of being wrong is high and hard to reverse (a Tier 1 spend, an unhappy former customer, a contract that may have renewed). Anything that fails all four tests is handled by the workflow and logged, not reviewed. This is the reasoning TargetOrate asked for; the individual triggers follow from it, and a new trigger should be added only if it passes one of the four tests.
 
-**Review volume ceiling (proposed).** Plan for no more than 25 percent of accounts in a run going to a consultant (for example 25 of 100). Reasoning: at roughly 15 minutes per account, 25 reviews is about 6 hours, which one consultant can complete in a working day, so a run can be turned around within a day; above that, review becomes the bottleneck and approvals become rushed. The figure is a Team Gamma proposal and needs TargetOrate's real consultant capacity.
+**Review volume ceiling (proposed).** Target no more than 25 percent of accounts for routine detailed review; this is not a cap on mandatory exceptions (for example 25 of 100). Reasoning: at roughly 15 minutes per account, 25 reviews is about 6 hours, which one consultant can complete in a working day, so a run can be turned around within a day; above that, review becomes the bottleneck and approvals become rushed. The figure is a Team Gamma proposal and needs TargetOrate's real consultant capacity.
 
-- If more than 25 percent trigger, review in this order: fatal data holds first, then accounts whose bounds straddle Tier 1, then accounts near a cutoff, then the rest. Accounts not reached are released as provisional, never as approved.
+- Mandatory exceptions (including fatal holds, safety/compliance blockers, unresolved rubric conflicts, unverified contract eligibility, and strategic-outlier or low-confidence high-impact cases) are never capped or silently deferred. If routine reviews exceed 25 percent, prioritize by impact and evidence rank; unresolved routine cases remain provisional and cannot be shown as approved.
 - Report the review rate for every run. A rate above the ceiling is a finding about the data or the rules and should be reported, not hidden.
 
 **Sampled check (proposed).** A consultant spot checks 10 percent of `Acceptable` accounts, at least 3, chosen by the consultant, before release. Any error found in the sample means the whole `Acceptable` group is reviewed. The 10 percent figure is a Team Gamma proposal for TargetOrate to confirm.
@@ -349,7 +349,7 @@ This one rule replaces three earlier rules that disagreed: the global missing da
 
 **Applies when** Incumbent Contract Status is `Locked`.
 - `Not locked` or `No incumbent`: gate not applied.
-- `Unknown` or blank: gate not evaluated. Record "contract status unknown". An unknown status is neither a lock nor a clearance, and it never costs the account points.
+- `Unknown` or blank: gate not evaluated. Record "contract status unknown". An unknown is not an automatic penalty; when an incumbent is named, mandatory consultant review is required before final approval of the tier.
 
 **Step 1: band from the renewal date.** Add 12 and 24 calendar months to the Scoring As Of Date. If the target day does not exist in that month, use the last day of the month.
 
@@ -377,7 +377,7 @@ This one rule replaces three earlier rules that disagreed: the global missing da
 2. A renewal date on or before the As Of Date is Band 1, and the account goes to consultant review to confirm whether the contract renewed.
 3. The gate uses the Scoring As Of Date, never the run clock. The same record and the same date always give the same result. When the date changes, rerun the gate; a capped account moves into the open window by itself when its renewal falls under 12 months away.
 4. The gate result is a recommendation. A consultant may approve a documented strategic exception. The AI never lifts a cap or reverses a disqualification itself.
-5. Vendor level events at the incumbent (price increases, acquisitions, compliance events and similar) are not part of this gate. They are a possible later addition to C8 and are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
+5. Independently verified incumbent-vendor events may inform C8 only under `workflow/Vendor_Event_Intelligence.md`; they never automatically override the competitive-lock investment gate or count as customer dissatisfaction.
 
 ## Per account review triggers
 
