@@ -74,7 +74,7 @@ The **FIOR rubric's missing-data rule is authoritative**:
 - Never substitute an assumed value solely because an evidence category has a high rank in the Criteria Ranking Model.
 - When both a V2 structured field and a legacy narrative field describe the same concept, use the structured V2 evidence. Legacy narrative fields are Rank 20 context/backward-compatibility evidence and may not replace required dates, compliance status, technology categories, budget evidence, or other structured fields.
 
-Use the ranking model to order the review queue, not to decide whether an account is reviewed. Whether missing data sends an account to a consultant follows one rule, stated in the rubric under "When an account goes to a consultant":
+Use the ranking model to order the routine review queue, not to suppress mandatory review. Whether missing data sends an account to a consultant follows one rule, stated in the rubric under "When an account goes to a consultant":
 
 - **Fatal (ranks 1 to 3: Company Name, Industry and Sub-Industry, Target ACV):** hold the account and request the data. Do not guess.
 - **Any other NS:** compute the total with every NS criterion at 2 and again at 10. If the tier is the same, do not send to review; add an audit note naming the missing fields. If the tier differs, send to the consultant and name the fields that would settle it.
@@ -197,7 +197,7 @@ Apply every review trigger defined in the FIOR rubric, including the missing dat
 
 Apply the Competitive Lock Gate in the FIOR rubric to the score implied tier from Step 5. The ICP's locked competitor disqualifier is enforced here.
 
-1. Use the gate only when Incumbent Contract Status is `Locked`. For `Not locked` or `No incumbent`, record "gate not applied". For `Unknown` or blank, record "gate not evaluated (contract status unknown)".
+1. Use the gate only when Incumbent Contract Status is `Locked`. For `Not locked` or `No incumbent`, record "gate not applied". For `Unknown` or blank, record "gate not evaluated (contract status unknown)". If an incumbent is named, require consultant review before final tier approval; an unknown alone does not lower the score.
 2. Place the renewal date in a band using the Scoring As Of Date: under 12 months is Band 1 (open window); 12 to 24 months inclusive is Band 2 (cap at Tier 3); over 24 months, or no renewal date, is Band 3 (disqualify). Use the ICP's window lengths if it sets them; otherwise 12 and 24.
 3. Apply the satisfaction move from the structured Incumbent Satisfaction field only: `Dissatisfied` moves one band toward Band 1, `Satisfied` one band toward Band 3, anything else no move.
 4. Apply the tier effect. A cap never raises a tier. Do not change the criterion scores or the total.
