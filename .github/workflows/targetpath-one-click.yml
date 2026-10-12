@@ -1,0 +1,39 @@
+name: TargetPath One-Click MVP
+on:
+  workflow_dispatch:
+    inputs:
+      scoring_as_of:
+        description: "Scoring date (YYYY-MM-DD; currently scorer fixture is fixed to 2026-10-11)"
+        required: true
+        default: "2026-10-11"
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: mvp-v1.1-integration
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check supported scoring date
+        run: |
+          test "${{ inputs.scoring_as_of }}" = "2026-10-11" || { echo "Current scorer only supports fixture date 2026-10-11"; exit 1; }
+      - name: Score 20-company MVP
+        run: python tools/score_v1_1.py --input data/20_Company_Dataset_Iteration7.csv --out-dir run_output
+      - name: Verify row and evidence counts
+        run: |
+          python - <<'PY'
+          import csv
+          def count(p):
+              with open(p, newline='', encoding='utf-8') as f: return len(list(csv.DictReader(f)))
+          assert count('run_output/portfolio_PROVISIONAL.csv') == 20
+          assert count('run_output/criterion_evidence.csv') == 280
+          print('20 accounts / 280 criterion evidence rows verified')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: targetpath-provisional-20-company-results
+          path: run_output/
