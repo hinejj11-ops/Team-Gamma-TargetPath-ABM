@@ -28,7 +28,7 @@ Band key: 1 = open window (under 12 months), 2 = capped at Tier 3 (12 to 24 mont
 | G15 | Neutral satisfaction causes no move | 2026-10-11 | Tier 1 | Locked | 2028-03-25 | Neutral | 2 to 2 | Capped at Tier 3 | Tier 3 | N |
 | G16 | Renewal date already passed: open window plus review | 2026-10-11 | Tier 1 | Locked | 2026-08-01 | Unknown | 1 to 1 | Open window: no cap | Tier 1 | Y |
 | G17 | Not locked account with a renewal date: gate not applied | 2026-10-11 | Tier 1 | Not locked | 2028-03-25 | Unknown | n/a | Gate not applied | Tier 1 | N |
-| G18 | Contract status Unknown: gate not evaluated | 2026-10-11 | Tier 1 | Unknown | 2028-03-25 | Unknown | n/a | Gate not evaluated (contract status unknown) | Tier 1 | N |
+| G18 | Contract status Unknown: gate not evaluated, mandatory review | 2026-10-11 | Tier 1 | Unknown | 2028-03-25 | Unknown | n/a | Gate not evaluated (contract status unknown) | Tier 1 | Y |
 | G19 | No incumbent: gate not applied | 2026-10-11 | Tier 1 | No incumbent | none | none | n/a | Gate not applied | Tier 1 | N |
 | G20 | Same record rerun on 2027-03-25 (exactly 12 months to renewal) | 2027-03-25 | Tier 1 | Locked | 2028-03-25 | Unknown | 2 to 2 | Capped at Tier 3 | Tier 3 | N |
 | G21 | Same record rerun on 2027-03-26 (under 12 months): moves to open window | 2027-03-26 | Tier 1 | Locked | 2028-03-25 | Unknown | 1 to 1 | Open window: no cap | Tier 1 | N |
