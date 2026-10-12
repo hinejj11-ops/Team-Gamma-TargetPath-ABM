@@ -116,3 +116,6 @@ The toolkit qualifies as minimum viable when a new consultant can, using this RE
 The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptance_Test.md`. All 13 functional acceptance conditions passed; two minor documentation/version-control issues identified by the test are corrected in the MVP v1.0 cleanup.
 
 **MVP v1.0 status: Accepted (Iteration 6 toolkit; the Iteration 7 additions have not been re-tested cold).** Future scoring-rule changes should be treated as post-MVP enhancements and tested as separate iterations.
+
+## MVP v1.1 integration status
+The v1.1 additions are proposed changes undergoing a new 20-account and edge-case acceptance test. Existing MVP v1.0 acceptance metrics do not establish v1.1 scoring correctness. Vendor-event evidence schema and controls are documented in `workflow/Vendor_Event_Intelligence.md`; no events are prepopulated or assumed verified. Run the 20-account test and retain approvals before proceeding to a 100-account run.
