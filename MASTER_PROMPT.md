@@ -24,6 +24,7 @@ If a lower-priority source conflicts with a higher-priority source, use the high
 4. **Client Reference List:** `Client_Target_Reference_Lists.md`.
 5. **Ranking Model:** `data/Criteria_Ranking_Model.csv`.
 6. **FIOR Data Contract:** `data/FIOR_Data_Requirements_Matrix.csv` — defines the account-level evidence fields required to execute C1–C14 consistently.
+7. **Scoring As Of Date:** the date used for the Competitive Lock Gate windows. State it for every run. If it is missing, ask for it; do not substitute the current date.
 
 ## Step 0 — Input Gating and ICP Validation
 
@@ -39,6 +40,7 @@ Before scoring any account:
 - Confirm the ICP contains explicit size/revenue ranges rather than qualitative labels alone.
 - Confirm technology requirements distinguish **required**, **preferred**, and **incompatible** technologies when applicable.
 - Confirm geography/compliance requirements identify served regions and required frameworks.
+- Confirm a Scoring As Of Date was supplied. Confirm the incumbent fields are valid: Incumbent Contract Status (`Locked`, `Not locked`, `No incumbent`, `Unknown`), Incumbent Satisfaction (`Dissatisfied`, `Neutral`, `Satisfied`, `Unknown`), and Contract Renewal Date (a valid date or blank). Incumbent Satisfaction means the target account's satisfaction with the vendor it uses today, not satisfaction with TargetOrate or the client.
 - Treat the included workbook as a **synthetic operational example**. In a real TargetOrate deployment, replace it with the client's completed ICP.
 - If a required ICP benchmark is missing, **do not infer or manufacture it from the account dataset**. Return the affected criterion as `NS`, identify the missing ICP field, and route the account/workflow to consultant review.
 - If the entire ICP is missing, do not produce final FIOR totals or ABM tiers. Return an input-validation failure identifying the missing required input.
@@ -72,11 +74,11 @@ The **FIOR rubric's missing-data rule is authoritative**:
 - Never substitute an assumed value solely because an evidence category has a high rank in the Criteria Ranking Model.
 - When both a V2 structured field and a legacy narrative field describe the same concept, use the structured V2 evidence. Legacy narrative fields are Rank 20 context/backward-compatibility evidence and may not replace required dates, compliance status, technology categories, budget evidence, or other structured fields.
 
-Use the ranking model to determine **severity and review priority**, not to override the rubric:
+Use the ranking model to order the review queue, not to decide whether an account is reviewed. Whether missing data sends an account to a consultant follows one rule, stated in the rubric under "When an account goes to a consultant":
 
-- **Ranks 1–3:** Missing data is a Fatal Data Error; do not guess. Return `NS` and route to human review.
-- **Ranks 4–15:** Return `NS` for affected criteria when required evidence is missing and flag for consultant review.
-- **Ranks 16–20:** Return `NS` where required; calculate eligible dimension averages using only scored criteria as permitted by the rubric and append an audit note.
+- **Fatal (ranks 1 to 3: Company Name, Industry and Sub-Industry, Target ACV):** hold the account and request the data. Do not guess.
+- **Any other NS:** compute the total with every NS criterion at 2 and again at 10. If the tier is the same, do not send to review; add an audit note naming the missing fields. If the tier differs, send to the consultant and name the fields that would settle it.
+- **Volume:** report the share of accounts sent to review. The proposed ceiling is 25 percent, with a 10 percent sampled check of `Acceptable` accounts (at least 3). If the 25 percent routine-review target is exceeded, prioritize routine review in the rubric order and release only non-mandatory items as provisional. Mandatory risk and compliance exceptions are never constrained by the target.
 
 Apply rubric confidence levels (High / Medium / Low) and all mandatory review triggers.
 
@@ -178,7 +180,7 @@ Apply the fixed weights:
 - **OPPORTUNITY (C9–C12):** Dimension Average × 3.0 (/30)
 - **RELATIONSHIP (C13–C14):** Dimension Average × 1.0 (/10)
 
-Sum the four weighted dimensions to a /100 composite and round to the nearest whole number before tier assignment.
+Sum the four weighted dimensions to a /100 composite and round to the nearest whole number before tier assignment. A total ending exactly in .5 rounds up.
 
 Honor the rubric's incomplete-dimension rules. Do not present a deceptively complete score when missing evidence requires review.
 
@@ -189,19 +191,57 @@ Honor the rubric's incomplete-dimension rules. Do not present a deceptively comp
 - **Tier 3 (40–59):** 1:Many ABM
 - **Under 40 / Disqualified:** Nurture / Inbound Only
 
-Apply every review trigger defined in the FIOR rubric, including missing-data tolerance, Low confidence, stale/unverified roles, leadership triggers, inferred values, near-cutoff totals, fit failures, and unhappy churn.
+Apply every review trigger defined in the FIOR rubric, including the missing data bounds test, Low confidence, stale/unverified roles, leadership triggers, inferred values, near-cutoff totals, fit failures, and unhappy churn.
 
-## Step 6 — Output
+## Step 5A: Competitive Lock Gate
+
+Apply the Competitive Lock Gate in the FIOR rubric to the score implied tier from Step 5. The ICP's locked competitor disqualifier is enforced here.
+
+1. Use the gate only when Incumbent Contract Status is `Locked`. For `Not locked` or `No incumbent`, record "gate not applied". For `Unknown` or blank, record "gate not evaluated (contract status unknown)".
+2. Place the renewal date in a band using the Scoring As Of Date: under 12 months is Band 1 (open window); 12 to 24 months inclusive is Band 2 (cap at Tier 3); over 24 months, or no renewal date, is Band 3 (disqualify). Use the ICP's window lengths if it sets them; otherwise 12 and 24.
+3. Apply the satisfaction move from the structured Incumbent Satisfaction field only: `Dissatisfied` moves one band toward Band 1, `Satisfied` one band toward Band 3, anything else no move.
+4. Apply the tier effect. A cap never raises a tier. Do not change the criterion scores or the total.
+5. Record the Score Implied Tier, Recommended Tier after the gate, band before and after the satisfaction move, and the evidence fields and values used.
+6. A disqualification, or a renewal date on or before the As Of Date, routes the account to consultant review. The gate result is a recommendation and the AI never lifts a cap or reverses a disqualification on its own.
+
+## Step 6: Self Review of Every Criterion
+
+When Steps 1 to 5 are finished for the whole batch, and before anything goes to the consultant, run `prompts/06_Criterion_Self_Review_Prompt.md`.
+
+- Recheck all 14 criteria for every account. Derive each score again from the evidence and rubric bands first, then compare it with the first pass.
+- Check evidence cited, band selection, NS versus absence handling, precedence rules, caps and flags, source hierarchy, forbidden evidence, the roll up math, and the Competitive Lock Gate (band, satisfaction move, and tier effect).
+- Correct a score only when the rubric text and cited evidence support the correction. Record both scores and recompute that account's dimensions, total, tier, and review status.
+- If the rubric does not settle a disagreement, keep the first pass score, record both readings, and escalate to the consultant.
+- Run once, plus one recheck of any corrected criteria. Do not loop further.
+
+Self review adds routing only. It never changes a rubric band, weight, tier cutoff, or ICP benchmark, and an unresolved self review discrepancy is a workflow level review trigger in addition to the rubric's triggers.
+
+## Step 7: Human Input and Correction Checkpoint
+
+After Step 6, stop and run `prompts/07_Human_Input_Correction_Prompt.md`.
+
+- Present the review packet: portfolio table, review queue, self review escalations, and an invitation to challenge any account or criterion.
+- Wait for the consultant. Do not finalize outputs or mark any account approved until the consultant responds or releases the results as provisional.
+- Accept approvals, data corrections, data supplied, score overrides, context notes, and escalations, using `templates/Human_Review_Input_Template.csv` or plain language.
+- Data inputs need a source and date. Overrides need the governing rubric band and evidence. Requests to change rubric bands, weights, cutoffs, or ICP benchmarks are escalated, not applied.
+- Apply input to the working copy only, rescore the affected criteria, rerun the self review checks on them, and recompute dimensions, total, tier, and review triggers. Keep the original AI result beside every change.
+- In a blind validation run, accept no human input. Return the packet and label every result provisional.
+
+## Step 8: Output
 
 Return a ranked Markdown portfolio table containing:
 
-**Rank | Company Name | Fit Score | Intent Score | Opportunity Score | Relationship Score | Total Score | Recommended ABM Tier | Data Gaps Flagged | Review Status**
+**Rank | Company Name | Fit Score | Intent Score | Opportunity Score | Relationship Score | Total Score | Score Implied Tier | Competitive Gate Action | Recommended ABM Tier | Data Gaps Flagged | Review Status | Review Reason | Low Bound / High Bound Tier | Self Review Result**
+
+`Review Status` has three values: `Acceptable` (no review trigger fired; no individual review, but the consultant still approves its tier when signing off the portfolio after the sampled check), `Review` (at least one trigger fired; consultant approval needed), and `Held` (a fatal field is missing; no tier). `Review Reason` names every trigger that fired. `Low Bound / High Bound Tier` is filled only when the account has an NS, and reads for example `T2 / T1`. `Recommended ABM Tier` is the tier after the Competitive Lock Gate. Rank accounts by total score and show disqualified accounts at the end.
 
 Then provide a concise portfolio summary covering:
 
 - Tier distribution;
 - Highest-priority accounts;
-- Accounts requiring consultant review;
+- Accounts requiring consultant review, with the review rate (reviewed divided by scored) against the 25 percent ceiling;
+- Self review corrections and escalations;
+- Human input applied, and accounts still provisional;
 - Material input/data-quality limitations; and
 - Any source conflicts detected.
 
