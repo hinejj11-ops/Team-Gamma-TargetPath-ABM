@@ -1,0 +1,21 @@
+Company,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,Fit,Intent,Opportunity,Relationship,Composite,Score_Implied_Tier,Competitive_Band,Recommended_Tier,Missing_Criteria,Low_Bound,High_Bound,Review_Triggers,Approval
+CloudBridge Solutions,10,10,10,10,10,8,10,2,6,10,10,8,4,8,35.00,18.75,25.50,6.00,85,Tier 1,2,Tier 3,,85,85,Tier 1 investment,PROVISIONAL
+Nexis Cloud Systems,10,10,10,4,6,8,10,4,8,8,6,2,8,10,29.75,17.50,18.00,9.00,74,Tier 2,n/a,Tier 2,,74,74,,PROVISIONAL
+Aegis Tech Group,10,10,10,NS,6,8,10,4,8,8,2,8,4,8,35.00,17.50,19.50,6.00,78,Tier 2,n/a,Tier 2,C4,71,78,near tier boundary,PROVISIONAL
+Vanguard Integrators,10,10,NS,10,4,8,8,8,8,4,6,4,2,8,35.00,17.50,16.50,5.00,74,Tier 2,n/a,Tier 2,C3,67,74,stale role verification,PROVISIONAL
+Pioneer Digital Services,8,10,NS,10,NS,8,10,NS,6,10,8,2,2,10,32.67,22.50,19.50,6.00,81,Tier 1,n/a,Tier 1,C3;C5;C8,66,83,unknown incumbent contract status;NS tier sensitivity;near tier boundary;Tier 1 investment,PROVISIONAL
+Apex ServiceNow Partner,8,10,10,4,10,8,2,4,8,8,6,8,8,10,28.00,15.00,22.50,9.00,75,Tier 2,n/a,Tier 2,,75,75,leadership change,PROVISIONAL
+Summit IT Consulting,10,10,10,NS,6,8,4,4,8,8,8,2,2,10,35.00,13.75,19.50,6.00,74,Tier 2,n/a,Tier 2,C4,67,74,,PROVISIONAL
+Optima Cloud Solutions,10,10,10,10,6,8,10,4,8,4,2,8,4,10,35.00,17.50,16.50,7.00,76,Tier 2,n/a,Tier 2,,76,76,,PROVISIONAL
+BlueMatrix Technologies,10,10,NS,10,4,8,4,4,8,10,8,2,2,8,35.00,12.50,21.00,5.00,74,Tier 2,n/a,Tier 2,C3,67,74,stale role verification,PROVISIONAL
+Stratagem Software,10,10,NS,4,2,8,4,4,8,8,8,2,4,10,28.00,11.25,19.50,7.00,66,Tier 2,n/a,Tier 2,C3,61,68,,PROVISIONAL
+Meridian IT Solutions,10,10,10,NS,10,8,10,8,6,8,6,10,4,10,35.00,22.50,22.50,7.00,87,Tier 1,n/a,Tier 1,C4,80,87,Tier 1 investment,PROVISIONAL
+Crestview Cloud Group,8,10,10,10,6,8,4,4,8,4,2,2,4,10,33.25,13.75,12.00,7.00,66,Tier 2,n/a,Tier 2,,66,66,,PROVISIONAL
+OmniTech Systems,2,10,10,10,6,8,4,4,8,10,10,2,4,10,28.00,13.75,22.50,7.00,71,Tier 2,n/a,Tier 2,,71,71,leadership change,PROVISIONAL
+Pinnacle Enterprise Tech,10,10,NS,4,4,4,4,4,8,8,6,2,4,10,28.00,10.00,18.00,7.00,63,Tier 2,n/a,Tier 2,C3,58,65,stale role verification;NS tier sensitivity,PROVISIONAL
+Veritas Cloud Partners,10,10,NS,NS,NS,4,4,8,6,8,2,4,8,8,35.00,13.33,15.00,8.00,71,Tier 2,n/a,Tier 2,C3;C4;C5,55,74,NS tier sensitivity,PROVISIONAL
+AlphaCentric IT,8,10,10,10,10,4,4,8,8,4,8,10,8,10,33.25,16.25,22.50,9.00,81,Tier 1,n/a,Tier 1,,81,81,near tier boundary;Tier 1 investment,PROVISIONAL
+Novus Tech Services,2,2,10,10,6,2,2,2,8,10,6,2,4,8,21.00,7.50,19.50,6.00,54,Tier 3,2,Tier 3,,54,54,industry and size outside ICP,PROVISIONAL
+Quantum Integration Group,2,2,2,4,6,2,2,2,8,8,2,2,2,2,8.75,7.50,15.00,2.00,33,Nurture / Disqualify,2,Nurture / Disqualify,,33,33,industry and size outside ICP,PROVISIONAL
+Zenith Software Partners,2,2,NS,NS,4,2,2,2,8,8,6,2,4,6,7.00,6.25,18.00,5.00,36,Nurture / Disqualify,2,Nurture / Disqualify,C3;C4,36,50,NS tier sensitivity;industry and size outside ICP,PROVISIONAL
+Helix Cloud Solutions,2,2,2,10,2,2,2,2,8,4,6,2,2,10,14.00,5.00,15.00,6.00,40,Tier 3,2,Tier 3,,40,40,near tier boundary;industry and size outside ICP,PROVISIONAL
