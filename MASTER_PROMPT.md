@@ -78,7 +78,7 @@ Use the ranking model to order the review queue, not to decide whether an accoun
 
 - **Fatal (ranks 1 to 3: Company Name, Industry and Sub-Industry, Target ACV):** hold the account and request the data. Do not guess.
 - **Any other NS:** compute the total with every NS criterion at 2 and again at 10. If the tier is the same, do not send to review; add an audit note naming the missing fields. If the tier differs, send to the consultant and name the fields that would settle it.
-- **Volume:** report the share of accounts sent to review. The proposed ceiling is 25 percent, with a 10 percent sampled check of `Acceptable` accounts (at least 3). If the 25 percent routine-review target is exceeded, prioritize routine review in the rubric order and release only non-mandatory items as provisional. Mandatory risk and compliance exceptions are never constrained by the target.
+- **Volume:** report the share of accounts sent to review. The proposed ceiling is 25 percent, with a 10 percent sampled check of `Acceptable` accounts (at least 3). If the routine-review target is exceeded, prioritize routine reviews and label nonmandatory unresolved items provisional. Mandatory exceptions are uncapped and must receive human disposition.
 
 Apply rubric confidence levels (High / Medium / Low) and all mandatory review triggers.
 
