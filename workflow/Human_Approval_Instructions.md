@@ -29,3 +29,5 @@ Record reviewer, date, company, criterion/account, AI result, final result, disp
 
 ## Release rule
 A portfolio may be released when all mandatory-review items have an approved disposition or are explicitly labeled provisional/pending data, `Held` accounts are listed separately without a tier, and the consultant has signed off the portfolio. Preserve the original AI result alongside any human override.
+## Uncapped mandatory exceptions
+The 25% routine-review target never limits mandatory exceptions. An account with a named incumbent and Unknown contract status needs a consultant disposition before final approval. An AI cannot classify such an account as fully cleared on the basis of missing lock information.
