@@ -79,7 +79,8 @@ Typical influencers/end users include Demand Gen, Marketing Ops, RevOps, Sales O
 - Favorable: incumbent renewal ≤6 months.
 - Neutral: build-vs-buy or active agency/tool evaluation.
 - Risk: renewal >6 months or unknown.
-- Hard disqualifier: verified exclusive/locked competitor with no actionable exit window.
+- Hard disqualifier: verified exclusive/locked competitor with no actionable exit window. The FIOR Competitive Lock Gate enforces this rule.
+- Competitive lock windows (months): open window under 12; cap at Tier 3 from 12 through 24 inclusive; disqualify beyond 24 or when the contract is locked with no stated renewal date. The windows follow TargetOrate's 6 to 9 month target sales cycle and the usual start of formal evaluation 9 to 12 months before renewal.
 
 Do not infer competitive favorability from vendor name alone.
 
@@ -105,7 +106,7 @@ Expansion is strongest when multiple products apply across sales, marketing, and
 - Outside served regions or verified regulatory blocker.
 - Verified incompatible technology as defined above.
 - Both employee count and revenue materially outside the ICP with no strategic exception.
-- Verified exclusive competitor lock-in with no actionable exit window.
+- Verified exclusive competitor lock-in with no actionable exit window (applied by the Competitive Lock Gate).
 - Documented material ethics, legal, brand-safety, or partnership-risk concern.
 - Legally/regulatorily unable to contract or no legitimate B2B use case.
 

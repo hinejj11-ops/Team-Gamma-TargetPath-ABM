@@ -8,7 +8,7 @@ Geography & Compliance,6,Geography; SOC 2 Type II; ISO 27001; GDPR Ready; HIPAA 
 Dated Intent Signals,7,Intent Signal 1 Type; Intent Signal 1 Date; Intent Signal 2 Type; Intent Signal 2 Date; Intent Signal 3 Type; Intent Signal 3 Date; Intent Signal 4 Type; Intent Signal 4 Date,C5,"C5 depends on the number of distinct signal types inside explicit 30- and 90-day windows; undated narrative intent is insufficient."
 Buying Triggers,8,Trigger Type; Trigger Date,C6,"Trigger relevance and recency drive C6; leadership-change triggers also create a mandatory review condition."
 Purchase Timeline & Readiness,9,Purchase Timeline & Readiness,C7,"Determines active evaluation/RFP status and decision horizon; inferred timelines require a score cap and review."
-Competitive Position,10,Incumbent / Competitor; Incumbent Satisfaction; Contract Renewal Date,C8; C12,"Required to distinguish greenfield, dissatisfaction, renewal timing, unknown competition, and locked-incumbent risk."
+Competitive Position,10,Incumbent / Competitor; Incumbent Satisfaction; Incumbent Contract Status; Contract Renewal Date,C8; C12; Gate,"Required to distinguish greenfield, dissatisfaction, renewal timing, unknown competition, and locked-incumbent risk."
 Budget Evidence,11,Budget Status,C12,"Budget confirmation is a core C12 win-probability test and cannot be inferred from ACV or intent."
 Expansion Potential,12,Applicable TargetOrate Products; Departments / Units in Scope,C10,"Product applicability and organizational breadth determine cross-sell and expansion potential."
 Existing Relationship,13,Existing Connections & History; Last Contact Date,C13; C14,"Relationship type and recency determine the strength of existing access and contribute to engagement history."

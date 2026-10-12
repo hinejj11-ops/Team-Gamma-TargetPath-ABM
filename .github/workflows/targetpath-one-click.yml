@@ -1,0 +1,54 @@
+name: TargetPath One-Click MVP
+on:
+  workflow_dispatch:
+    inputs:
+      dataset_size:
+        description: "Run synthetic 20-account MVP or labeled 100-account stress fixture"
+        type: choice
+        required: true
+        default: "20"
+        options:
+          - "20"
+          - "100"
+      scoring_as_of:
+        description: "Scoring date supported by current frozen scorer"
+        required: true
+        default: "2026-10-11"
+jobs:
+  toolkit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/one-click-toolkit
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run full provisional toolkit packaging
+        run: |
+          python tools/run_toolkit.py --mode "${{ inputs.dataset_size }}" --as-of "${{ inputs.scoring_as_of }}" --out-dir run_output
+      - name: Verify artifacts and provenance
+        run: |
+          python - <<'PY'
+          import csv, json, pathlib
+          p=pathlib.Path("run_output")
+          manifest=json.loads((p/"run_manifest.json").read_text())
+          with (p/"portfolio_PROVISIONAL.csv").open(newline="") as f:
+              scores=list(csv.DictReader(f))
+          with (p/"criterion_evidence.csv").open(newline="") as f:
+              evidence=list(csv.DictReader(f))
+          assert len(scores)==manifest["account_count"]
+          assert len(evidence)==manifest["criterion_count"]==14*len(scores)
+          assert len(list((p/"account_cards").glob("*.md")))==len(scores)
+          assert (p/"targetpath_provisional_toolkit.zip").is_file()
+          assert manifest["human_approvals"]=="PENDING"
+          print("Toolkit artifact contract verified")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: targetpath-toolkit-${{ inputs.dataset_size }}-account-provisional
+          path: run_output/
+          if-no-files-found: warn

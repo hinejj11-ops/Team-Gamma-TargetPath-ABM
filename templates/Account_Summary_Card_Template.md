@@ -1,9 +1,13 @@
 # Account Summary Card
 
 **Company:**  
-**Recommended ABM Tier:**  
+**Score Implied Tier:**  
+**Competitive Lock Gate:** (Not applied / Not evaluated / Open window / Capped at Tier 3 / Disqualified; band, renewal date, satisfaction evidence)  
+**Recommended ABM Tier (after gate):**  
 **Composite Score:** /100  
-**Review Status:**  
+**Review Status:** (Acceptable / Review / Held)
+**Review Reason:** (every trigger that fired; for missing data, the low and high bound tiers)  
+**Self Review Result:** (Confirmed / Corrected / Escalated)  
 **Human Approval Status:**  
 
 ## Dimension scores
@@ -31,4 +35,6 @@ For C1-C14 record: Score/NS | Rubric band | Evidence | Benchmark | Confidence | 
 - Disposition:
 - Reviewer/date:
 - Override, if any:
+- Human supplied or corrected data (field, value, source, date):
+- Original AI result kept:
 - Rationale/evidence:
