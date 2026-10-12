@@ -2,6 +2,8 @@
 
 Version: draft for workflow build. Score anchors other than Annual Contract Value and the tier cutoffs are Team Gamma proposals and may change after TargetOrate confirms them. The weights (35, 25, 30, 10) are fixed.
 
+Iteration 7 draft addition: the Competitive Lock Gate (see "Competitive Lock Gate" below) and the C8 definition of "locked". The 12 and 24 month windows come from TargetOrate; the band boundaries, the handling of unknown status, and the other items in `workflow/Competitive_Lock_Gate_Open_Items.md` are Team Gamma assumptions pending TargetOrate confirmation.
+
 ## Purpose
 
 Score one account on the 14 FIOR criteria using only the evidence in the account record. Each criterion has anchored score levels so repeated runs on the same record produce the same score.
@@ -12,6 +14,7 @@ Score one account on the 14 FIOR criteria using only the evidence in the account
 - The filled ICP Template: target industries, size range, technology (required and preferred), geography, compliance requirements
 - The client's product list and average deal size
 - The client's trigger relevance list, partner target list, and executive title list
+- The Scoring As Of Date for the run (required for the Competitive Lock Gate; state it for every run and do not substitute the current date)
 
 ## Global scoring rules
 
@@ -19,7 +22,7 @@ Score one account on the 14 FIOR criteria using only the evidence in the account
 2. Work from the top band down and take the first band whose condition is fully met. A combination not listed takes the lower adjacent score.
 3. Score only from the account record and the inputs above. Do not use outside knowledge to fill a gap.
 4. Cite the field name and value behind every score.
-5. Missing data: if the field a criterion needs is blank or marked unknown, return NS (not scored) and flag for review. A blank is not a zero. Score 2 only when the record shows the signal is absent. This rule is interim until TargetOrate supplies its tiered list of criterion importance and a fallback for missing information.
+5. Missing data: if the field a criterion needs is blank or marked unknown, return NS (not scored). A blank is not a zero. Score 2 only when the record shows the signal is absent. Whether an NS sends the account to a consultant is decided only by the Review rule ("When an account goes to a consultant") below.
 6. Stale data (proposed thresholds): intent signals older than 90 days count as absent. Company data older than 12 months, and contact or role data older than 6 months, are scored but flagged.
 7. Confidence: High when the record states the fact directly, Medium when it is inferred, Low when the evidence is thin. Low confidence triggers review.
 8. For each criterion return: criterion number, score (or NS), band, evidence cited (field and value), confidence, review flag (yes or no) and reason.
@@ -48,7 +51,7 @@ Rules:
 2. **Explicit-exclusion rule:** If the ICP explicitly identifies the account's industry, sub-industry, use case, or business category as outside the ICP, score C1 = 2. An otherwise matching parent industry does not override an explicit exclusion.
 3. **Specific-over-general rule:** When a specific sub-industry/use-case classification conflicts with a broader industry classification, the more specific classification governs when the ICP explicitly addresses it.
 4. Do not infer an industry or sub-industry from unrelated fields solely to improve the score.
-5. If the industry/sub-industry evidence itself is missing or genuinely contradictory, apply the global NS/review rules rather than assuming a fit.
+5. If the industry/sub-industry evidence itself is missing or genuinely contradictory, return NS for C1 and apply the Review rule (Industry and Sub-Industry are fatal fields, so the account is held) rather than assuming a fit.
 
 Flag trigger: if account evidence contains materially conflicting industry classifications that cannot be resolved using the ICP hierarchy above, score using the best fully supported classification and route the account to consultant review.
 
@@ -145,6 +148,7 @@ Evidence: funding, leadership change, technology migration, contract renewal, pr
 Rules:
 - An explicit negative value such as `Verified no trigger`, `No trigger identified`, or an equivalent structured statement is affirmative evidence that no buying trigger was found and scores C6 = 2 when no positive structured trigger is present.
 - Do not treat the date attached to an explicit negative trigger record as evidence that a trigger occurred. The date establishes when the absence was verified.
+- Score 10 needs two distinct trigger types. Trigger Type and Trigger Date may each hold up to two entries separated by a semicolon, matched in order. With a single entry, 8 is the highest score available.
 - A blank Trigger Type is missing evidence and follows the global NS rule; it is not equivalent to `Verified no trigger`.
 - When structured Trigger Type / Trigger Date evidence is present, legacy narrative trigger fields may not override it.
 
@@ -175,6 +179,12 @@ Evidence: incumbent vendor, satisfaction notes, contract end date.
 | 6 | Competitor contract renews within 6 months |
 | 4 | Competitor contract renews in more than 6 months, or the date is unknown |
 | 2 | Contract locked with a competitor |
+
+Definitions (Iteration 7 clarification; preserves every C8 score in the Iteration 6 key):
+- "Contract locked with a competitor" (score 2) means Incumbent Contract Status is `Locked` and the Contract Renewal Date is 12 or more months after the Scoring As Of Date, or no renewal date is stated.
+- A `Locked` contract renewing in more than 6 and fewer than 12 months scores 4, as "renews in more than 6 months".
+- A date that is unknown with a status other than `Locked` scores 4. A blank incumbent with no other evidence follows the global NS rule.
+- C8 scores the criterion only. The tier effect of a lock is applied by the Competitive Lock Gate below.
 
 ---
 
@@ -294,7 +304,7 @@ Average the scored criteria in each dimension, then multiply by the dimension mu
 | OPPORTUNITY | 9 to 12 | 3.0 | 30 |
 | RELATIONSHIP | 13 to 14 | 1.0 | 10 |
 
-Total = FIT + INTENT + OPPORTUNITY + RELATIONSHIP, out of 100. Round the total to the nearest whole number before assigning a tier.
+Total = FIT + INTENT + OPPORTUNITY + RELATIONSHIP, out of 100. Round the total to the nearest whole number before assigning a tier. A total that ends exactly in .5 rounds up (74.5 becomes 75). Compute from unrounded dimension scores. (Iteration 7 tie rule; the Iteration 6 keys rounded some ties down, see the README.)
 
 | Total | Recommended tier | Approach |
 | --- | --- | --- |
@@ -305,15 +315,75 @@ Total = FIT + INTENT + OPPORTUNITY + RELATIONSHIP, out of 100. Round the total t
 
 Dimension status (proposed): Strong at 70% or more of the dimension maximum, Moderate at 40% to 69%, Weak below 40%.
 
-Missing data in totals (proposed): average only the criteria that were scored. If more than one criterion in a dimension is NS, or any criterion in RELATIONSHIP is NS, mark the dimension incomplete and route the account to review before a total is accepted.
+Missing data in totals: average only the criteria that were scored within each dimension. This gives a provisional total. Whether that total can be released is decided by the Review rule below.
 
-Tier is a recommendation only. The AI outputs a recommended tier and the consultant approves it.
+Tier is a recommendation. An account with no review trigger (Review Status `Acceptable`) does not need an individual review. The consultant still approves its tier as part of signing off the portfolio, after the sampled check in the Quality Control Checklist. An account with any review trigger needs consultant approval before release and is labeled provisional until then.
+
+## When an account goes to a consultant (single review rule, Iteration 7 proposed)
+
+This one rule replaces three earlier rules that disagreed: the global missing data rule, the "more than one NS per dimension" tolerance, and the rank based routing in `MASTER_PROMPT.md`. Nothing else decides whether a missing value causes review.
+
+**Rule for missing data (NS).**
+1. Cannot score at all (fatal). If Company Name, Industry or Sub-Industry (C1), or Target ACV (C9) is missing, the account is held and a data request goes to the consultant. These are the Criteria Ranking Model ranks 1 to 3. Without them the tier cannot be defended and no bound can be computed.
+2. Any other NS: compute the total twice, once with every NS criterion set to 2 (low bound) and once set to 10 (high bound), using the same dimension formula and rounding. If both totals give the same tier, the missing data cannot change the recommendation. The account is not reviewed for the NS; the output carries an audit note listing the missing fields. If the two totals give different tiers, the account goes to the consultant, with the specific fields that would settle it listed.
+3. Evidence rank only orders the queue (see the ceiling paragraph below). It never decides, by itself, whether an account is reviewed.
+
+**Why this rule.** A consultant's time is worth spending only where the missing value could change what the client does. A tier that stays the same at the worst case and the best case needs no human to fill the gap. A tier that changes needs one. This ties review to the decision rather than to the number of blanks.
+
+**Other triggers (unchanged).** Low confidence, conflicting industry classification, unverified role older than 6 months or a leadership change trigger, an inferred timeline or ACV or competitor status, a total within 2 points of a tier cutoff, scoring 2 on both Industry and Company Size, an unhappy churn, and the Competitive Lock Gate outcomes listed below.
+
+**The test behind every trigger.** A step goes to a human only when at least one of these is true: (a) the value is a judgment the rubric cannot settle (conflicting industry classification, a strategic outlier, rubric ambiguity); (b) the evidence cannot be checked from the record (an inferred timeline, ACV or competitor status, a role not verified in 6 months, low confidence); (c) the recommendation could flip on a small change (a total within 2 points of a cutoff, or a missing value whose bounds straddle a tier); or (d) the cost of being wrong is high and hard to reverse (a Tier 1 spend, an unhappy former customer, a contract that may have renewed). Anything that fails all four tests is handled by the workflow and logged, not reviewed. This is the reasoning TargetOrate asked for; the individual triggers follow from it, and a new trigger should be added only if it passes one of the four tests.
+
+**Review volume ceiling (proposed).** Plan for no more than 25 percent of accounts in a run going to a consultant (for example 25 of 100). Reasoning: at roughly 15 minutes per account, 25 reviews is about 6 hours, which one consultant can complete in a working day, so a run can be turned around within a day; above that, review becomes the bottleneck and approvals become rushed. The figure is a Team Gamma proposal and needs TargetOrate's real consultant capacity.
+
+- If more than 25 percent trigger, review in this order: fatal data holds first, then accounts whose bounds straddle Tier 1, then accounts near a cutoff, then the rest. Accounts not reached are released as provisional, never as approved.
+- Report the review rate for every run. A rate above the ceiling is a finding about the data or the rules and should be reported, not hidden.
+
+**Sampled check (proposed).** A consultant spot checks 10 percent of `Acceptable` accounts, at least 3, chosen by the consultant, before release. Any error found in the sample means the whole `Acceptable` group is reviewed. The 10 percent figure is a Team Gamma proposal for TargetOrate to confirm.
+
+## Competitive Lock Gate (proposed, Iteration 7)
+
+**Why it exists.** C8 scores a locked competitor contract as one criterion, so a lock can lower a total but cannot stop a strong account from reaching Tier 1. The ICP lists a locked competitor with no actionable exit window as a hard disqualifier, but nothing connected that rule to FIOR. The gate connects them. It changes the recommended tier only. It never changes a criterion score or the total.
+
+**Inputs.** Score implied tier (from the rounded total and the tier table), Incumbent Contract Status, Contract Renewal Date, Incumbent Satisfaction, and the Scoring As Of Date. Window lengths default to 12 and 24 months and may be set in the client ICP.
+
+**Applies when** Incumbent Contract Status is `Locked`.
+- `Not locked` or `No incumbent`: gate not applied.
+- `Unknown` or blank: gate not evaluated. Record "contract status unknown". An unknown status is neither a lock nor a clearance, and it never costs the account points.
+
+**Step 1: band from the renewal date.** Add 12 and 24 calendar months to the Scoring As Of Date. If the target day does not exist in that month, use the last day of the month.
+
+| Band | Condition | Meaning |
+| --- | --- | --- |
+| 1 Open window | Renewal date is earlier than As Of Date plus 12 months (under 12 months) | Score normally, eligible for Tier 1 |
+| 2 Capped | Renewal date is from As Of Date plus 12 months through As Of Date plus 24 months, both inclusive | Cap at Tier 3 |
+| 3 Locked out | Renewal date is later than As Of Date plus 24 months, or no renewal date is stated | Disqualify |
+
+**Step 2: satisfaction move.** Use only the structured Incumbent Satisfaction field. The legacy narrative Competitive Context field may not substitute.
+- `Dissatisfied`: move one band toward Band 1 (3 to 2, 2 to 1; Band 1 stays).
+- `Satisfied`: move one band toward Band 3 (1 to 2, 2 to 3; Band 3 stays).
+- `Neutral`, `Unknown`, or blank: no move. An unknown never costs the account points.
+
+**Step 3: tier effect of the final band.**
+
+| Final band | Effect on the recommended tier |
+| --- | --- |
+| 1 | None. Any tier the score supports, including Tier 1. |
+| 2 | Tier 1 or Tier 2 becomes Tier 3. Tier 3 and Nurture / Disqualify are unchanged. A cap never raises a tier. |
+| 3 | `Disqualified (Competitive Lock)`, whatever the score. |
+
+**Rules.**
+1. Always report both the Score Implied Tier and the Recommended Tier after the gate, the band before and after the satisfaction move, and the fields and values used.
+2. A renewal date on or before the As Of Date is Band 1, and the account goes to consultant review to confirm whether the contract renewed.
+3. The gate uses the Scoring As Of Date, never the run clock. The same record and the same date always give the same result. When the date changes, rerun the gate; a capped account moves into the open window by itself when its renewal falls under 12 months away.
+4. The gate result is a recommendation. A consultant may approve a documented strategic exception. The AI never lifts a cap or reverses a disqualification itself.
+5. Vendor level events at the incumbent (price increases, acquisitions, compliance events and similar) are not part of this gate. They are a possible later addition to C8 and are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 ## Per account review triggers
 
 Route a single account to a consultant when any of these is true:
 
-- Any criterion returns NS beyond the tolerance above
+- Missing data whose low and high bounds give different tiers, or a fatal missing field (see the Review rule above)
 - Any criterion is scored with Low confidence
 - Data provider category and company description disagree on industry
 - A contact's role is not verified in the last 6 months, or the trigger is a leadership change
@@ -321,3 +391,4 @@ Route a single account to a consultant when any of these is true:
 - The total falls within 2 points of a tier cutoff (for example 58 to 61)
 - The account scores 2 on both Industry and Company Size
 - A former customer churned unhappy (criterion 14)
+- The Competitive Lock Gate disqualifies the account, or the contract renewal date is on or before the Scoring As Of Date
