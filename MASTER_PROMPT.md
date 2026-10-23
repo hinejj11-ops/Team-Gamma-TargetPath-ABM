@@ -250,3 +250,7 @@ When requested, also return the criterion-level audit trail / Account Summary Ca
 ## Operational Guardrail
 
 The example ICP is designed to make the capstone workflow executable and testable. It must not be treated as TargetOrate's real client ICP. Production users should replace the example workbook with a completed client ICP while preserving the same validation and scoring process.
+
+## Run Record and Reproducibility
+
+For every execution, complete `validation/Run_Record_Template.md` as a separate run record. Capture the run ID, branch and commit, scoring as-of date, input hashes, configured model, tools, output filenames, approval status, and any deviations. Create and save the record with the provisional run outputs **before** opening or comparing against any validation answer key. For repeatability tests, complete a new record for each independent run; do not edit a locked record afterward. This is a documentation step and does not authorize consultant approval or change scoring rules. During blind scoring, do not read files under `validation/` as scoring evidence; use the run-record template only for post-scoring documentation.
