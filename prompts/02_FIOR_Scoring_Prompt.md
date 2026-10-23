@@ -15,5 +15,6 @@ Requirements:
 - Compute weighted Fit, Intent, Opportunity, and Relationship scores and the rounded composite only as permitted by the rubric.
 - Apply tier and mandatory-review rules.
 - Do not read or use `/validation/` or validation-only ground-truth fields.
+- Treat these results as a first pass. They go to `prompts/06_Criterion_Self_Review_Prompt.md` before any consultant sees them.
 
 Return the ranked portfolio table defined in `MASTER_PROMPT.md` plus an audit trail sufficient for consultant review.
