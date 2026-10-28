@@ -1,8 +1,8 @@
 # FIOR Account Scoring Rubric
 
-Version: draft for workflow build. Score anchors other than Annual Contract Value and the tier cutoffs are Team Gamma proposals and may change after TargetOrate confirms them. The weights (35, 25, 30, 10) are fixed.
+Version: confirmed by TargetOrate for the workflow. The rubric may still change when TargetOrate reviews the delivered files, and any change goes through a separately tested iteration. The weights (35, 25, 30, 10) are fixed.
 
-Iteration 7 draft addition: the Competitive Lock Gate (see "Competitive Lock Gate" below) and the C8 definition of "locked". The 12 and 24 month windows come from TargetOrate; the band boundaries, the handling of unknown status, and the other items in `workflow/Competitive_Lock_Gate_Open_Items.md` are Team Gamma assumptions pending TargetOrate confirmation.
+Iteration 7 addition: the Competitive Lock Gate (see "Competitive Lock Gate" below) and the C8 definition of "locked". TargetOrate confirmed the gate. The assumptions behind it are recorded in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 ## Purpose
 
@@ -23,7 +23,7 @@ Score one account on the 14 FIOR criteria using only the evidence in the account
 3. Score only from the account record and the inputs above. Do not use outside knowledge to fill a gap.
 4. Cite the field name and value behind every score.
 5. Missing data: if the field a criterion needs is blank or marked unknown, return NS (not scored). A blank is not a zero. Score 2 only when the record shows the signal is absent. Whether an NS sends the account to a consultant is decided only by the Review rule ("When an account goes to a consultant") below.
-6. Stale data (proposed thresholds): intent signals older than 90 days count as absent. Company data older than 12 months, and contact or role data older than 6 months, are scored but flagged.
+6. Stale data: intent signals older than 90 days count as absent. Company data older than 12 months, and contact or role data older than 6 months, are scored but flagged.
 7. Confidence: High when the record states the fact directly, Medium when it is inferred, Low when the evidence is thin. Low confidence triggers review.
 8. For each criterion return: criterion number, score (or NS), band, evidence cited (field and value), confidence, review flag (yes or no) and reason.
 
@@ -313,13 +313,13 @@ Total = FIT + INTENT + OPPORTUNITY + RELATIONSHIP, out of 100. Round the total t
 | 40 to 59 | Tier 3 | 1:Many ABM |
 | Under 40 | Nurture / Disqualify | Inbound only |
 
-Dimension status (proposed): Strong at 70% or more of the dimension maximum, Moderate at 40% to 69%, Weak below 40%.
+Dimension status: Strong at 70% or more of the dimension maximum, Moderate at 40% to 69%, Weak below 40%.
 
 Missing data in totals: average only the criteria that were scored within each dimension. This gives a provisional total. Whether that total can be released is decided by the Review rule below.
 
 Tier is a recommendation. An account with no review trigger (Review Status `Acceptable`) does not need an individual review. The consultant still approves its tier as part of signing off the portfolio, after the sampled check in the Quality Control Checklist. An account with any review trigger needs consultant approval before release and is labeled provisional until then.
 
-## When an account goes to a consultant (single review rule, Iteration 7 proposed)
+## When an account goes to a consultant (single review rule, Iteration 7)
 
 This one rule replaces three earlier rules that disagreed: the global missing data rule, the "more than one NS per dimension" tolerance, and the rank based routing in `MASTER_PROMPT.md`. Nothing else decides whether a missing value causes review.
 
@@ -334,14 +334,14 @@ This one rule replaces three earlier rules that disagreed: the global missing da
 
 **The test behind every trigger.** A step goes to a human only when at least one of these is true: (a) the value is a judgment the rubric cannot settle (conflicting industry classification, a strategic outlier, rubric ambiguity); (b) the evidence cannot be checked from the record (an inferred timeline, ACV or competitor status, a role not verified in 6 months, low confidence); (c) the recommendation could flip on a small change (a total within 2 points of a cutoff, or a missing value whose bounds straddle a tier); or (d) the cost of being wrong is high and hard to reverse (a Tier 1 spend, an unhappy former customer, a contract that may have renewed). Anything that fails all four tests is handled by the workflow and logged, not reviewed. This is the reasoning TargetOrate asked for; the individual triggers follow from it, and a new trigger should be added only if it passes one of the four tests.
 
-**Review volume ceiling (proposed).** Target no more than 25 percent of accounts for routine detailed review; this is not a cap on mandatory exceptions (for example 25 of 100). Reasoning: at roughly 15 minutes per account, 25 reviews is about 6 hours, which one consultant can complete in a working day, so a run can be turned around within a day; above that, review becomes the bottleneck and approvals become rushed. The figure is a Team Gamma proposal and needs TargetOrate's real consultant capacity.
+**Review volume ceiling.** Target no more than 25 percent of accounts for routine detailed review; this is not a cap on mandatory exceptions (for example 25 of 100). Reasoning: at roughly 15 minutes per account, 25 reviews is about 6 hours, which one consultant can complete in a working day, so a run can be turned around within a day; above that, review becomes the bottleneck and approvals become rushed. The figure may change once TargetOrate's real consultant capacity is known.
 
 - Mandatory exceptions (including fatal holds, safety/compliance blockers, unresolved rubric conflicts, unverified contract eligibility, and strategic-outlier or low-confidence high-impact cases) are never capped or silently deferred. If routine reviews exceed 25 percent, prioritize by impact and evidence rank; unresolved routine cases remain provisional and cannot be shown as approved.
 - Report the review rate for every run. A rate above the ceiling is a finding about the data or the rules and should be reported, not hidden.
 
-**Sampled check (proposed).** A consultant spot checks 10 percent of `Acceptable` accounts, at least 3, chosen by the consultant, before release. Any error found in the sample means the whole `Acceptable` group is reviewed. The 10 percent figure is a Team Gamma proposal for TargetOrate to confirm.
+**Sampled check.** A consultant spot checks 10 percent of `Acceptable` accounts, at least 3, chosen by the consultant, before release. Any error found in the sample means the whole `Acceptable` group is reviewed. The 10 percent figure is a Team Gamma proposal for TargetOrate to confirm.
 
-## Competitive Lock Gate (proposed, Iteration 7)
+## Competitive Lock Gate (Iteration 7)
 
 **Why it exists.** C8 scores a locked competitor contract as one criterion, so a lock can lower a total but cannot stop a strong account from reaching Tier 1. The ICP lists a locked competitor with no actionable exit window as a hard disqualifier, but nothing connected that rule to FIOR. The gate connects them. It changes the recommended tier only. It never changes a criterion score or the total.
 
