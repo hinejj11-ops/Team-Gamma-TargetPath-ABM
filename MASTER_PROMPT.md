@@ -58,11 +58,11 @@ Do not use outside knowledge unless the user explicitly authorizes external rese
 
 ### Validation-only assets — prohibited during normal scoring
 
-The `/validation/` directory contains post-run testing assets, including `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv`. **Do not read, retrieve, inspect, or use any file in `/validation/` while scoring accounts.** Those files are an answer key for blind validation after a scoring run is complete.
+The `/validation/` directory holds test scenarios, templates, and run documentation. It contains no answer key, and none of it is scoring evidence. **Do not use any file in `/validation/` as evidence for C1 to C14, dimension scores, totals, tiers, confidence, or review status.** Do not open test scenario or expected-outcome files before scoring a test dataset, because that would make the run non-independent.
 
 Likewise, any account field labeled `Ground Truth ... (Validation Only)`, including `Ground Truth ICP Qualification (Validation Only)`, is excluded from all FIOR evidence and must not influence C1–C14, dimension scores, totals, tiers, confidence, or review status.
 
-If a user explicitly requests a validation comparison after an independent scoring run has already been completed, the validation-only assets may then be read solely to compare predicted versus expected results.
+After scoring is complete and outputs are saved, a user may ask for a comparison against a test scenario file (for example the Competitive Lock Gate scenarios). Such files may then be read solely to check that the workflow followed its own rules. They are not an independent measure of accuracy.
 
 ## Step 2 — Apply FIOR Scoring and Missing-Data Rules
 
@@ -253,4 +253,4 @@ The example ICP is designed to make the capstone workflow executable and testabl
 
 ## Run Record and Reproducibility
 
-For every execution, complete `validation/Run_Record_Template.md` as a separate run record. Capture the run ID, branch and commit, scoring as-of date, input hashes, configured model, tools, output filenames, approval status, and any deviations. Create and save the record with the provisional run outputs **before** opening or comparing against any validation answer key. For repeatability tests, complete a new record for each independent run; do not edit a locked record afterward. This is a documentation step and does not authorize consultant approval or change scoring rules. During blind scoring, do not read files under `validation/` as scoring evidence; use the run-record template only for post-scoring documentation.
+For every execution, complete `validation/Run_Record_Template.md` as a separate run record. Capture the run ID, branch and commit, scoring as-of date, input hashes, configured model, tools, output filenames, approval status, and any deviations. Create and save the record with the provisional run outputs **before** opening or comparing against any validation scenario file. For repeatability tests, complete a new record for each independent run; do not edit a locked record afterward. This is a documentation step and does not authorize consultant approval or change scoring rules. During scoring, do not read files under `validation/` as scoring evidence; use the run-record template only for post-scoring documentation.

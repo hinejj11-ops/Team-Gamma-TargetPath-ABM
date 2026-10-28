@@ -31,6 +31,6 @@ Use before releasing a scored ABM portfolio.
 - [ ] Accounts still waiting on human input are labeled provisional.
 - [ ] Strategic outliers were reviewed rather than score-manipulated.
 - [ ] Final portfolio output contains data-gap and review status.
-- [ ] Validation comparison, when performed, occurred only after a blind run.
-- [ ] Validation disagreements were adjudicated rather than automatically trained away.
+- [ ] Any comparison to a test scenario or prior run occurred only after the run was locked.
+- [ ] Differences were reviewed by a consultant rather than automatically trained away.
 - [ ] Synthetic test assets are clearly distinguished from production client data.

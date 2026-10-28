@@ -13,7 +13,7 @@ Run a repeatable AI-assisted ABM account-scoring process with explicit human con
 7. **Consultant review and human input.** Run `prompts/03_Consultant_Review_Prompt.md` for flagged items. At the checkpoint in `prompts/07_Human_Input_Correction_Prompt.md`, the consultant approves, corrects data, supplies missing data, overrides scores with evidence, adds context, or escalates. The AI applies the input, rescores the affected criteria, and recomputes totals and tiers. Use `templates/Human_Review_Input_Template.csv` to submit input.
 8. **Human approval.** Follow `workflow/Human_Approval_Instructions.md`. AI recommendations are not self-approving.
 9. **Publish outputs.** Populate the portfolio and account-summary templates. Preserve audit rationale and data-gap flags.
-10. **Validate changes.** When testing workflow/rubric changes, run `prompts/05_Validation_Adjudication_Prompt.md` against quarantined test assets only after the blind run. Human input is not accepted in a blind run.
+10. **Validate changes.** When testing workflow/rubric changes, run `prompts/05_Validation_Adjudication_Prompt.md` against test scenario files only after the independent run is locked. Human input is not accepted in a blind run.
 
 ## Source hierarchy
 FIOR Rubric -> Completed Client ICP -> Client Target Reference Lists -> Account Dataset -> No unsupported assumptions.

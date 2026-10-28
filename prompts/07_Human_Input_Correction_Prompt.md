@@ -46,5 +46,5 @@ Checks before applying anything:
 - **Human input log.** Company | Criterion or Field | Input Type | Original AI Result or Value | Human Value | Source or Evidence | Reviewer and Date | Resulting Score | Resulting Total and Tier | Crossed Tier Cutoff (Y/N) | Open Follow Up.
 - **Updated portfolio table.** Accounts still waiting on human input are labeled PROVISIONAL.
 
-## Blind validation runs
-In a blind validation run (`prompts/05_Validation_Adjudication_Prompt.md`), accept no human input. Return the review packet, label every result PROVISIONAL, and note that this step was not exercised.
+## Independent validation runs
+In an independent validation run (`prompts/05_Validation_Adjudication_Prompt.md`), accept no human input. Return the review packet, label every result PROVISIONAL, and note that this step was not exercised.

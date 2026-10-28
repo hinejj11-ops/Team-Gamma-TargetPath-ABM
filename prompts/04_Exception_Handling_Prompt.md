@@ -15,6 +15,6 @@ Exception classes:
 - RUBRIC AMBIGUITY: do not invent a new anchor. Record competing interpretations and escalate methodology.
 - SELF REVIEW DISCREPANCY: first pass and recheck disagree and the rubric text does not settle it -> keep the first pass score, record both readings, escalate to the consultant.
 - DATA/SCHEMA ERROR: malformed or unavailable required input -> stop or route according to severity.
-- VALIDATION CONFLICT: never change production scoring merely to match an answer key; send to adjudication.
+- VALIDATION CONFLICT: never change production scoring merely to match a reference file; send to consultant review.
 
 Return Exception Class, Affected Criterion, Evidence, Temporary Disposition, Required Human Action, and whether scoring may continue.

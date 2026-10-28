@@ -1,5 +1,7 @@
 # MVP v1.0 Acceptance Test
 
+> Historical record. This test was run before the 20-company answer key was removed. References below to keys and adjudication describe the toolkit as tested then.
+
 **Status:** PASS WITH MINOR CORRECTIONS  
 **Test basis:** Default `main` branch after Iterations 1-6 and toolkit packaging were merged.  
 **Test method:** Cold-start operator examination using the README and packaged toolkit artifacts, with `/validation/` quarantined until the operational workflow was examined.
@@ -19,7 +21,7 @@
 | Produce Account Summary Cards | PASS |
 | Apply pre-release quality control | PASS |
 | Quarantine validation assets during blind execution | PASS |
-| Conduct post-run validation and adjudication | PASS |
+| Conduct post-run validation and review | PASS |
 | Discover and operate the workflow from the README | PASS |
 
 **Functional acceptance:** 13/13 conditions passed.
@@ -31,7 +33,7 @@
 
 ## MVP decision
 
-The toolkit meets the minimum viable product definition for the capstone: a new operator can discover the workflow, prepare inputs, run the governed AI scoring process, route exceptions and human approvals, produce standard outputs, and perform blind validation using documented artifacts.
+The toolkit meets the minimum viable product definition for the capstone: a new operator can discover the workflow, prepare inputs, run the governed AI scoring process, route exceptions and human approvals, produce standard outputs, and perform independent validation using documented artifacts.
 
 ## Scope boundary
 

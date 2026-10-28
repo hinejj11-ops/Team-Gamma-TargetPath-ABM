@@ -23,4 +23,4 @@ Return:
 
 Do not score C1-C14 in this step.
 
-If the account dataset contains a column named `Ground Truth ICP Qualification (Validation Only)`, stop and ask for the scoring copy. Create it with `tools/split_ground_truth.py` so the scoring run never has the answer in front of it.
+If the account dataset contains a column named `Ground Truth ICP Qualification (Validation Only)`, stop and ask for the scoring copy. Create it with `tools/split_ground_truth.py` so the scoring run never sees the validation-only column.

@@ -1,6 +1,6 @@
 # Run Record Template
 
-Complete one record per run of the prompt chain, before any comparison to a key is read. Save it with the run output and do not edit it afterward. For repeatability runs, use one record per run. Pairs with `validation/Failure_Analysis_Template.md`, which is completed after comparison and refers back to this record for its run details.
+Complete one record per run of the prompt chain, before any comparison to a reference file is read. Save it with the run output and do not edit it afterward. For repeatability runs, use one record per run. Pairs with `validation/Failure_Analysis_Template.md`, which is completed after comparison and refers back to this record for its run details.
 
 ## Run provenance
 
@@ -47,7 +47,7 @@ Confirm each item, or mark it as not met with a reason.
 - [ ] No file under `validation/` was opened for scoring.
 - [ ] The scoring dataset has no ground truth column.
 - [ ] The `ICP Qualified` label was not used as evidence for C1 to C4.
-- [ ] No answer key was compared before all outputs were locked.
+- [ ] No reference file or test scenario was compared before all outputs were locked.
 - [ ] No human input was accepted during the run.
 
 ## Output files

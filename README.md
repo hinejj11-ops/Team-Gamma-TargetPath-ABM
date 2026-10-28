@@ -1,4 +1,4 @@
-# TargetPath AI ABM Workflow Toolkit — MVP v1.0
+# TargetPath AI ABM Workflow Toolkit — MVP v1.1
 **Team Gamma | Auburn University Harbert College of Business (MBA Capstone, Fall 2026)**
 
 ## Purpose
@@ -20,7 +20,7 @@ A new TargetOrate consultant should execute the toolkit in this order:
 7. Route mandatory-review cases through `prompts/03_Consultant_Review_Prompt.md` and `workflow/Human_Approval_Instructions.md`. At the human input checkpoint (`prompts/07_Human_Input_Correction_Prompt.md`), submit corrections, supplied data, and overrides using `templates/Human_Review_Input_Template.csv`.
 8. Complete `workflow/Quality_Control_Checklist.md`.
 9. Publish results using the output templates.
-10. When testing a workflow change, use `prompts/05_Validation_Adjudication_Prompt.md`; never expose validation assets before the blind run is locked.
+10. When testing a workflow change, use `prompts/05_Validation_Adjudication_Prompt.md`; never open test scenario files before the run is locked.
 
 ## 11-Component Toolkit Map
 
@@ -35,8 +35,8 @@ A new TargetOrate consultant should execute the toolkit in this order:
 | Input templates | `templates/Client_ICP_Input_Template.md`; `templates/Account_Data_Input_Template.csv`; `templates/Human_Review_Input_Template.csv` |
 | Exception-handling prompts | `prompts/04_Exception_Handling_Prompt.md` |
 | Output templates | `templates/ABM_Portfolio_Output_Template.csv`; `templates/Account_Summary_Card_Template.md` |
-| Test scenarios & expected results | `data/20_Company_Dataset_Week6_Validation.csv`; `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv`; Iteration 7 gate tests: `data/20_Company_Dataset_Iteration7.csv`, `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv`, `validation/Competitive_Lock_Gate_Test_Scenarios.md` |
-| Validation prompts | `prompts/05_Validation_Adjudication_Prompt.md`; `validation/Adjudication_Log.md` |
+| Test scenarios & example results | 20-company sample: `data/20_Company_Dataset_Iteration7.csv`; 100-company synthetic set: `data/100_Company_Dataset_Synthetic_Test.csv` (see `data/100_Company_Dataset_Synthetic_Test_README.md`), with results in `100_Company_Run_Report.md` and provenance in `100_Company_v1.1_Run_Record.md`; Competitive Lock Gate tests: `data/20_Company_Dataset_Iteration7.csv`, `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv`, `validation/Competitive_Lock_Gate_Test_Scenarios.md` |
+| Validation prompts | `prompts/05_Validation_Adjudication_Prompt.md`; `validation/Run_Record_Template.md`; `validation/Failure_Analysis_Template.md` |
 
 ## Authoritative Scoring Artifacts
 
@@ -61,44 +61,28 @@ The AI produces recommendations, evidence trails, confidence, data-gap flags, an
 
 ## Validation Boundary
 
-Everything under `/validation/` is quarantined during normal scoring and blind test execution. Validation assets may be opened only after the independent run has been completed and locked.
+There is no answer key for this toolkit. Scoring is a judgment against the rubric and the client ICP, so results are reported from running the process, with a record of how each run was produced. A consultant reviews the output.
 
-The synthetic 20-company validation set uses versioned validation keys so historical and current testing are not conflated:
+Files under `/validation/` are test scenarios, templates, and run documentation. They are not scoring evidence and must not be used to score accounts. Do not open the test scenario files before a test run is locked, so the run stays independent.
 
-- `validation/Expected_FIOR_Results_ITERATION6_ORIGINAL.csv` preserves the original Iteration 6 answer key used to reproduce the historical blind benchmark.
-- `validation/Expected_FIOR_Results_ADJUDICATED_WORKING.csv` preserves the post-adjudication working key for future regression testing.
-- `validation/Expected_FIOR_Results_VALIDATION_ONLY.csv` is retained for backward compatibility and currently mirrors the adjudicated working key.
-- `validation/Adjudication_Log.md` documents why the historical and working keys differ.
-- `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv` and `validation/Competitive_Lock_Gate_Test_Scenarios.md` test the Competitive Lock Gate. They were written by Team Gamma, not by TargetOrate, so they check that the gate follows its rules and are not an independent accuracy measure. They pair with `data/20_Company_Dataset_Iteration7.csv`, which adds the Incumbent Contract Status column and replaces the old `Locked` value in Incumbent Satisfaction with `Unknown`. The Week 6 dataset is kept unchanged for the Iteration 6 keys.
+- `validation/Competitive_Lock_Gate_Test_Scenarios.md` and `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv` are example scenarios for the Competitive Lock Gate. Team Gamma wrote them, not TargetOrate, so they check that the gate follows its rules. They are not an independent measure of accuracy. They pair with `data/20_Company_Dataset_Iteration7.csv`, which adds the Incumbent Contract Status column.
+- `validation/Run_Record_Template.md` records how a run was produced (model, inputs, hashes, as-of date, approvals). Complete one per run and do not edit it afterward.
+- `validation/Failure_Analysis_Template.md` and `validation/Repeatability_Protocol.md` support review of a run and repeat runs.
+- `validation/MVP_v1_Acceptance_Test.md`, `validation/MVP_v1_1_Integration_Test_Plan.md`, and `validation/MVP_v1_1_Gate_Regression_Report.md` document testing of the toolkit itself.
 
-Do not compare a new run to one key while reporting metrics from the other.
+If a dataset carries a ground truth column, split it out with `tools/split_ground_truth.py` and score only the `_scoring` copy.
 
-After each run, complete `validation/Failure_Analysis_Template.md`. For consistency across runs, follow `validation/Repeatability_Protocol.md`. The ground truth column for the Iteration 7 dataset is held in `validation/20_Company_Dataset_Iteration7_Ground_Truth.csv`, not in the scoring file.
-
-The Iteration 6 baseline below predates the self review step. Runs that include `prompts/06_Criterion_Self_Review_Prompt.md` must label their metrics with the workflow version and report self review corrections separately from first pass results.
-
-Iteration 6 baseline:
-- Raw criterion agreement: **255/280 (91.1%)**
-- Residual disagreements: **25**
-- Human adjudication: **18 validation-key errors, 3 model/execution errors, 4 unresolved rubric/data ambiguities**
-- Rule conformance after author adjudication, crediting confirmed key errors: **273/280 (97.5%)**
-- Rule conformance after author adjudication, excluding the four unresolved ambiguities: **273/276 (98.9%)**
-
-These two figures are not accuracy against an independent answer. Team Gamma wrote both the validation key and the corrections, so they measure how closely the output follows the rubric as the team understands it. The 91.1% raw figure is the cleaner measure of agreement with the original key. Provenance of the run (which AI, version, and date) and the committed run output are not in this repository and must be added by the team that ran it.
-
-Tie rule note: three Iteration 6 key totals end exactly in .5 (Apex 73.5, Summit 74.5, BlueMatrix 73.5) and the key rounded some of them down. Iteration 7 rounds .5 up. No tier changes. The Iteration 6 keys are left as they were.
-
-Raw and adjudicated metrics must be reported separately.
+When reporting a run, state the workflow version, the model, the as-of date, the dataset, and the number of accounts routed to consultant review. Report any self review corrections separately from first pass results.
 
 ## Production Use
 
-The included ICP, company dataset, expected results, and adjudication log are synthetic capstone assets. In production:
+The included ICP, company datasets, example scenarios, and run reports are synthetic capstone assets. In production:
 
 1. replace the example ICP with the client's completed ICP;
 2. replace the synthetic account dataset with current client/account data;
 3. keep dated evidence current;
 4. preserve consultant approval for flagged cases;
-5. keep validation assets quarantined;
+5. keep test scenario files out of scoring runs;
 6. change scoring methodology only through a separately tested and documented iteration; and
 7. populate Incumbent Satisfaction (the target account's satisfaction with its current vendor) from TargetOrate's intent data and sales conversations, and state a Scoring As Of Date for every run. The Competitive Lock Gate open items for TargetOrate are in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
@@ -111,7 +95,7 @@ The toolkit qualifies as minimum viable when a new consultant can, using this RE
 - identify and handle exceptions;
 - route mandatory-review items to human approval;
 - publish the standard portfolio and account-summary outputs; and
-- validate a test run without leaking expected results into scoring.
+- validate a test run without leaking test scenario files into scoring.
 
 The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptance_Test.md`. All 13 functional acceptance conditions passed; two minor documentation/version-control issues identified by the test are corrected in the MVP v1.0 cleanup.
 
