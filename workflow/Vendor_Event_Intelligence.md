@@ -4,7 +4,7 @@
 Use public, source-verifiable incumbent vendor developments to support the FIOR C8 competitive-context assessment. This is not a substitute for private client data on whether a specific account is dissatisfied with its incumbent.
 
 ## Evidence contract
-Maintain `data/Incumbent_Vendor_Events_Reference.csv` with Vendor, Event Type, Event Date, Severity, Source URL, Source Publisher, Verified On, Verification Status, Scope and Analyst Notes. The initial list is empty: **no verified public event has been established for the synthetic accounts**.
+Maintain `templates/Incumbent_Vendor_Events_Template.csv` with Vendor, Event Type, Event Date, Severity, Source URL, Source Publisher, Verified On, Verification Status, Scope and Analyst Notes. The initial list is empty: **no verified public event has been established for the synthetic accounts**.
 
 Acceptable event types include material price increase, acquisition, major layoffs, key executive departure, product end-of-life, cybersecurity incident, verified regulatory enforcement, and material litigation. Treat allegations as allegations; do not assume wrongdoing based on an investigation or lawsuit. Require an identifiable primary document or credible dated reporting, a working public URL, and analyst verification of vendor identity and event relevance.
 
