@@ -32,7 +32,7 @@ A new TargetOrate consultant should execute the toolkit in this order:
 | Quality-control checklists | `workflow/Quality_Control_Checklist.md` |
 | Workflow instructions | `workflow/TargetPath_Workflow_Instructions.md` |
 | Human approval instructions | `workflow/Human_Approval_Instructions.md`; `prompts/07_Human_Input_Correction_Prompt.md` |
-| Input templates | `templates/Client_ICP_Input_Template.md`; `templates/Account_Data_Input_Template.csv`; `templates/Human_Review_Input_Template.csv` |
+| Input templates | `templates/Client_ICP_Input_Template.md`; `templates/Account_Data_Input_Template.csv`; `templates/Human_Review_Input_Template.csv`; `templates/Incumbent_Vendor_Events_Template.csv` (header only, no events prepopulated) |
 | Exception-handling prompts | `prompts/04_Exception_Handling_Prompt.md` |
 | Output templates | `templates/ABM_Portfolio_Output_Template.csv`; `templates/Account_Summary_Card_Template.md` |
 | Test scenarios & example results | 20-company sample: `data/20_Company_Dataset_Iteration7.csv`; 100-company synthetic set: `data/100_Company_Dataset_Synthetic_Test.csv` (see `data/100_Company_Dataset_Synthetic_Test_README.md`), with results in `100_Company_Run_Report.md` and provenance in `100_Company_v1.1_Run_Record.md`; Competitive Lock Gate tests: `data/20_Company_Dataset_Iteration7.csv`, `validation/Competitive_Lock_Gate_Expected_Outcomes.csv`, `validation/Competitive_Lock_Gate_Test_Scenarios.md` |
