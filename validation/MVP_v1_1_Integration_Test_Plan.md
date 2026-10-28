@@ -10,7 +10,7 @@
 5. Perform a **second independent pass** over all 280 criteria; log each discrepancy and recompute dimensions, totals, score-implied and post-gate tiers.
 6. Run 22 independent gate scenarios including boundaries, contract status, satisfaction, unknown status, and past renewal date.
 7. Run tier-impact missing-data bounds plus uncapped mandatory exceptions, sampling routine acceptable accounts. In blind evaluation do not pretend human approval occurred: return PROVISIONAL.
-8. Lock all predictions before reading comparison keys. Compare against historical/working keys only after blind execution and log all deviations, including preexisting key inconsistencies.
+8. Lock all predictions before reading any test scenario file. Compare against test scenario files only after independent execution and log all deviations. There is no answer key; report the results from the run itself.
 9. Return CloudBridge before/after and portfolio tier distribution; ensure the gate never increases underlying FIOR scores.
 10. Only after the 20-company run and human signoff proceed to generate a **separate 100-company fixture** covering every gate branch. Execute three independent repeatability runs and record metrics.
 

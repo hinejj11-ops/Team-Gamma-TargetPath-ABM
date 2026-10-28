@@ -14,4 +14,4 @@ File: `data/100_Company_Dataset_Synthetic_Test.csv`
 ## Coverage in the 80 new rows
 Each of the 16 deterministic scenario positions occurs five times. Positions exercise missing industry, ACV, employee count, geography, referenceability; unhappy churn; dissatisfied and satisfied incumbents; locks beyond 24 months; undated locks; exact 12- and 24-month renewal boundaries; past renewals; unknown lock status; and satisfaction-based cap changes. Other varied fields exercise stale/missing intent signals, technology evidence, compliance, budget and contacts.
 
-This file is on a **separate data branch**; the restored `main` branch and teammate scoring implementation are unchanged. Do not merge or run against the MVP until TargetOrate adjudication is complete.
+Results from running this dataset are reported in `100_Company_Run_Report.md`, with provenance in `100_Company_v1.1_Run_Record.md`. There is no answer key for these records.
