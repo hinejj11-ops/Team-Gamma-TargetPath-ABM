@@ -5,7 +5,7 @@
 
 This repository is a **tested and documented AI ABM workflow toolkit** for TargetOrate. It operationalizes the FIOR account-scoring methodology as a reusable, human-in-the-loop workflow rather than a single prompt.
 
-The MVP contains all 11 requested toolkit components: modular prompts, review prompts, multi-step prompt chains, quality-control checklists, workflow instructions, human approval instructions, input templates, exception-handling prompts, output templates, test scenarios and expected results, and validation prompts.
+The MVP contains all 11 requested toolkit components: modular prompts, review prompts, multi-step prompt chains, quality-control checklists, workflow instructions, human approval instructions, input templates, exception-handling prompts, output templates, test scenarios and example results, and validation prompts.
 
 ## Start Here
 
@@ -91,7 +91,7 @@ The included ICP, company datasets, example scenarios, and run reports are synth
 The toolkit qualifies as minimum viable when a new consultant can, using this README and the linked artifacts only:
 
 - prepare and validate inputs;
-- execute a blind FIOR scoring run;
+- execute an independent FIOR scoring run;
 - identify and handle exceptions;
 - route mandatory-review items to human approval;
 - publish the standard portfolio and account-summary outputs; and
@@ -99,7 +99,11 @@ The toolkit qualifies as minimum viable when a new consultant can, using this RE
 
 The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptance_Test.md`. All 13 functional acceptance conditions passed; two minor documentation/version-control issues identified by the test are corrected in the MVP v1.0 cleanup.
 
-**MVP v1.0 status: Accepted (Iteration 6 toolkit; the Iteration 7 additions have not been re-tested cold).** Future scoring-rule changes should be treated as post-MVP enhancements and tested as separate iterations.
+**MVP v1.0 status: Accepted as tested (Iteration 6 toolkit).** Future scoring-rule changes are post-MVP enhancements and are tested as separate iterations.
 
 ## MVP v1.1 integration status
-The v1.1 additions are proposed changes undergoing a new 20-account and edge-case acceptance test. Existing MVP v1.0 acceptance metrics do not establish v1.1 scoring correctness. Vendor-event evidence schema and controls are documented in `workflow/Vendor_Event_Intelligence.md`; no events are prepopulated or assumed verified. Run the 20-account test and retain approvals before proceeding to a 100-account run.
+- The Competitive Lock Gate and the other v1.1 additions are proposed changes. The deterministic gate regression passed (`validation/MVP_v1_1_Gate_Regression_Report.md`), but it does not show that the full scoring chain is reliable.
+- A first run of the 100 company synthetic dataset is documented in `100_Company_Run_Report.md` and `100_Company_v1.1_Run_Record.md`. It is **provisional**: it stopped at the human input checkpoint and no consultant approval was obtained.
+- Existing MVP v1.0 acceptance results do not establish v1.1 scoring correctness. The test plan is in `validation/MVP_v1_1_Integration_Test_Plan.md`.
+- Vendor-event evidence schema and controls are documented in `workflow/Vendor_Event_Intelligence.md`; no events are prepopulated or assumed verified.
+- Before relying on v1.1 results, a consultant must review the held and flagged accounts and approve final tiers.

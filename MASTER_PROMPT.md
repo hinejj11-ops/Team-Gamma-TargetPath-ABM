@@ -225,7 +225,7 @@ After Step 6, stop and run `prompts/07_Human_Input_Correction_Prompt.md`.
 - Accept approvals, data corrections, data supplied, score overrides, context notes, and escalations, using `templates/Human_Review_Input_Template.csv` or plain language.
 - Data inputs need a source and date. Overrides need the governing rubric band and evidence. Requests to change rubric bands, weights, cutoffs, or ICP benchmarks are escalated, not applied.
 - Apply input to the working copy only, rescore the affected criteria, rerun the self review checks on them, and recompute dimensions, total, tier, and review triggers. Keep the original AI result beside every change.
-- In a blind validation run, accept no human input. Return the packet and label every result provisional.
+- In an independent validation run, accept no human input. Return the packet and label every result provisional.
 
 ## Step 8: Output
 
