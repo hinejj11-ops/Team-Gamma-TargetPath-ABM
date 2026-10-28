@@ -4,7 +4,7 @@
 
 **Date:** 2026-10-12
 **Scoring as-of date:** 2026-10-11 (fixture provenance)
-**Inputs:** `data/20_Company_Dataset_Iteration7.csv`; versioned existing working FIOR score fixture and Iteration 7 draft gate outcomes
+**Inputs:** `data/20_Company_Dataset_Iteration7.csv`; versioned existing working FIOR score fixture and Iteration 7 gate outcomes
 **Method:** Independent JavaScript recomputation of gate bands, satisfaction shifts, post-gate tier, and mandatory gate review flags. Expected gate outcomes were consulted **for regression comparison**, not for an independent blind 14-criterion model test.
 
 ## Results

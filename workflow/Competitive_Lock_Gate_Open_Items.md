@@ -1,6 +1,6 @@
 # Competitive Lock Gate: Assumptions and Open Items
 
-**Status:** Draft for discussion with TargetOrate. The gate itself is in `FIOR_Scoring_Rubric_10_2_2026.md` (Competitive Lock Gate) and `MASTER_PROMPT.md` (Step 5A). Tests are in `validation/Competitive_Lock_Gate_Test_Scenarios.md`.
+**Status:** The gate was confirmed by TargetOrate. This file is kept as the record of the assumptions behind it and may be updated when TargetOrate reviews the delivered files. The gate itself is in `FIOR_Scoring_Rubric_10_2_2026.md` (Competitive Lock Gate) and `MASTER_PROMPT.md` (Step 5A). Tests are in `validation/Competitive_Lock_Gate_Test_Scenarios.md`.
 
 ## What came from TargetOrate and what came from Team Gamma
 
@@ -32,7 +32,7 @@
 | A13 | C8 clarification: `Locked` with renewal 12 or more months out, or no date, scores 2. `Locked` renewing in more than 6 and under 12 months scores 4. This matches the C8 scores of the earlier iteration. | Rubric C8 | The old C8 bands overlapped ("renews in more than 6 months" versus "locked") |
 | A14 | The gate changes the recommended tier only. Criterion scores, totals, and C12 are not changed. | Rubric gate | If TargetOrate wants C12 to reflect the lock, C12 needs a rule |
 | A15 | Iteration 7 dataset recoding: rows that held `Locked` in Incumbent Satisfaction now have contract status `Locked` and satisfaction `Unknown`; "Multiple alternatives" rows are `Not locked`; blank incumbents are `No incumbent`; Pioneer is `Unknown`. | `data/20_Company_Dataset_Iteration7.csv` | Test data only |
-| A16 | The draft expected outcomes and the 22 gate scenarios were written by Team Gamma. They test that the gate follows its rules, not that the rules are right. | `validation/` | An independent check would need someone who did not write the rules |
+| A16 | The expected outcomes and the 22 gate scenarios were written by Team Gamma. They test that the gate follows its rules, not that the rules are right. | `validation/` | An independent check would need someone who did not write the rules |
 | A17 | The vendor event reference schema and evidence controls are built; no event may be used until a public source is verified. | Not in the gate | See question 9 |
 
 ## Questions for TargetOrate (Karen)

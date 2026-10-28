@@ -1,6 +1,6 @@
-# Competitive Lock Gate Test Scenarios (Iteration 7, draft)
+# Competitive Lock Gate Test Scenarios (Iteration 7)
 
-**Status:** Written by Team Gamma, not by TargetOrate. Expected results follow the gate rules in `FIOR_Scoring_Rubric_10_2_2026.md` as currently proposed. They are a regression check on the gate logic, not an independent accuracy measure. Open assumptions are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
+**Status:** The gate rules were confirmed by TargetOrate; the scenarios themselves were written by Team Gamma. Expected results follow the gate rules in `FIOR_Scoring_Rubric_10_2_2026.md` as confirmed by TargetOrate. They are a regression check on the gate logic, not an independent accuracy measure. Open assumptions are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 This file is validation only. Do not read it during a normal scoring run.
 
@@ -35,5 +35,5 @@ Band key: 1 = open window (under 12 months), 2 = capped at Tier 3 (12 to 24 mont
 | G22 | Month end rule: 12 months from 2028-02-29 is 2029-02-28 (no 29th), so renewal 2029-02-28 is exactly 12 months and capped | 2028-02-29 | Tier 1 | Locked | 2029-02-28 | Unknown | 2 to 2 | Capped at Tier 3 | Tier 3 | N |
 
 ## Coverage notes
-- The 20 company set (`data/20_Company_Dataset_Iteration7.csv`) exercises only one branch: five locked accounts, all in the capped band, and only CloudBridge changes tier. See `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv`.
+- The 20 company set (`data/20_Company_Dataset_Iteration7.csv`) exercises only one branch: five locked accounts, all in the capped band, and only CloudBridge changes tier. See `validation/Competitive_Lock_Gate_Expected_Outcomes.csv`.
 - No account in the 20 company set is in the open window, over 24 months, missing a renewal date, dissatisfied, or satisfied. Those branches are covered only by the scenarios above. Add accounts for these branches to the 100 company test set.

@@ -35,7 +35,7 @@ A new TargetOrate consultant should execute the toolkit in this order:
 | Input templates | `templates/Client_ICP_Input_Template.md`; `templates/Account_Data_Input_Template.csv`; `templates/Human_Review_Input_Template.csv` |
 | Exception-handling prompts | `prompts/04_Exception_Handling_Prompt.md` |
 | Output templates | `templates/ABM_Portfolio_Output_Template.csv`; `templates/Account_Summary_Card_Template.md` |
-| Test scenarios & example results | 20-company sample: `data/20_Company_Dataset_Iteration7.csv`; 100-company synthetic set: `data/100_Company_Dataset_Synthetic_Test.csv` (see `data/100_Company_Dataset_Synthetic_Test_README.md`), with results in `100_Company_Run_Report.md` and provenance in `100_Company_v1.1_Run_Record.md`; Competitive Lock Gate tests: `data/20_Company_Dataset_Iteration7.csv`, `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv`, `validation/Competitive_Lock_Gate_Test_Scenarios.md` |
+| Test scenarios & example results | 20-company sample: `data/20_Company_Dataset_Iteration7.csv`; 100-company synthetic set: `data/100_Company_Dataset_Synthetic_Test.csv` (see `data/100_Company_Dataset_Synthetic_Test_README.md`), with results in `100_Company_Run_Report.md` and provenance in `100_Company_v1.1_Run_Record.md`; Competitive Lock Gate tests: `data/20_Company_Dataset_Iteration7.csv`, `validation/Competitive_Lock_Gate_Expected_Outcomes.csv`, `validation/Competitive_Lock_Gate_Test_Scenarios.md` |
 | Validation prompts | `prompts/05_Validation_Adjudication_Prompt.md`; `validation/Run_Record_Template.md`; `validation/Failure_Analysis_Template.md` |
 
 ## Authoritative Scoring Artifacts
@@ -65,7 +65,7 @@ There is no answer key for this toolkit. Scoring is a judgment against the rubri
 
 Files under `/validation/` are test scenarios, templates, and run documentation. They are not scoring evidence and must not be used to score accounts. Do not open the test scenario files before a test run is locked, so the run stays independent.
 
-- `validation/Competitive_Lock_Gate_Test_Scenarios.md` and `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv` are example scenarios for the Competitive Lock Gate. Team Gamma wrote them, not TargetOrate, so they check that the gate follows its rules. They are not an independent measure of accuracy. They pair with `data/20_Company_Dataset_Iteration7.csv`, which adds the Incumbent Contract Status column.
+- `validation/Competitive_Lock_Gate_Test_Scenarios.md` and `validation/Competitive_Lock_Gate_Expected_Outcomes.csv` are example scenarios for the Competitive Lock Gate. TargetOrate confirmed the gate rules; Team Gamma wrote the scenarios, so they check that the gate follows its rules. They are not an independent measure of accuracy. They pair with `data/20_Company_Dataset_Iteration7.csv`, which adds the Incumbent Contract Status column.
 - `validation/Run_Record_Template.md` records how a run was produced (model, inputs, hashes, as-of date, approvals). Complete one per run and do not edit it afterward.
 - `validation/Failure_Analysis_Template.md` and `validation/Repeatability_Protocol.md` support review of a run and repeat runs.
 - `validation/MVP_v1_Acceptance_Test.md`, `validation/MVP_v1_1_Integration_Test_Plan.md`, and `validation/MVP_v1_1_Gate_Regression_Report.md` document testing of the toolkit itself.
@@ -84,7 +84,7 @@ The included ICP, company datasets, example scenarios, and run reports are synth
 4. preserve consultant approval for flagged cases;
 5. keep test scenario files out of scoring runs;
 6. change scoring methodology only through a separately tested and documented iteration; and
-7. populate Incumbent Satisfaction (the target account's satisfaction with its current vendor) from TargetOrate's intent data and sales conversations, and state a Scoring As Of Date for every run. The Competitive Lock Gate open items for TargetOrate are in `workflow/Competitive_Lock_Gate_Open_Items.md`.
+7. populate Incumbent Satisfaction (the target account's satisfaction with its current vendor) from TargetOrate's intent data and sales conversations, and state a Scoring As Of Date for every run. The assumptions behind the Competitive Lock Gate are recorded in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 ## MVP Acceptance Test
 
@@ -102,7 +102,7 @@ The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptanc
 **MVP v1.0 status: Accepted as tested (Iteration 6 toolkit).** Future scoring-rule changes are post-MVP enhancements and are tested as separate iterations.
 
 ## MVP v1.1 integration status
-- The Competitive Lock Gate and the other v1.1 additions are proposed changes. The deterministic gate regression passed (`validation/MVP_v1_1_Gate_Regression_Report.md`), but it does not show that the full scoring chain is reliable.
+- The Competitive Lock Gate and the rubric were confirmed by TargetOrate, and may still change when TargetOrate reviews the delivered files. The deterministic gate regression passed (`validation/MVP_v1_1_Gate_Regression_Report.md`), but it does not show that the full scoring chain is reliable.
 - A first run of the 100 company synthetic dataset is documented in `100_Company_Run_Report.md` and `100_Company_v1.1_Run_Record.md`. It is **provisional**: it stopped at the human input checkpoint and no consultant approval was obtained.
 - Existing MVP v1.0 acceptance results do not establish v1.1 scoring correctness. The test plan is in `validation/MVP_v1_1_Integration_Test_Plan.md`.
 - Vendor-event evidence schema and controls are documented in `workflow/Vendor_Event_Intelligence.md`; no events are prepopulated or assumed verified.

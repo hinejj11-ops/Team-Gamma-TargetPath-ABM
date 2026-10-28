@@ -1,10 +1,10 @@
 # CloudBridge Solutions: Before and After the Competitive Lock Gate
 
-**As Of Date used:** 2026-10-11. **Status:** Iteration 7 draft. The "after" column comes from the gate rules in `FIOR_Scoring_Rubric_10_2_2026.md` and `validation/Expected_FIOR_Results_ITERATION7_GATE_DRAFT.csv`, which Team Gamma wrote. TargetOrate has not yet confirmed the open items in `workflow/Competitive_Lock_Gate_Open_Items.md`.
+**As Of Date used:** 2026-10-11. **Status:** Iteration 7, gate confirmed by TargetOrate. The "after" column comes from the gate rules in `FIOR_Scoring_Rubric_10_2_2026.md` and `validation/Competitive_Lock_Gate_Expected_Outcomes.csv`, which Team Gamma wrote. The assumptions behind the gate are recorded in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 ## What changed
 
-| Item | Before (Iteration 6) | After (Iteration 7 draft) |
+| Item | Before (Iteration 6) | After (Iteration 7) |
 |---|---|---|
 | Fit / Intent / Opportunity / Relationship | 35.0 / 18.8 / 25.5 / 6.0 | Unchanged |
 | Total score | 85 | 85 (unchanged) |
