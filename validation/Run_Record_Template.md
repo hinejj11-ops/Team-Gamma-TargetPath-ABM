@@ -40,7 +40,7 @@ Hash every file the run read and used, and hash the exact files given to the AI,
 
 List files that were present at this commit but not read, and note any file that was read but not executed.
 
-## Blind run controls
+## Independent run controls
 
 Confirm each item, or mark it as not met with a reason.
 

@@ -180,7 +180,7 @@ Evidence: incumbent vendor, satisfaction notes, contract end date.
 | 4 | Competitor contract renews in more than 6 months, or the date is unknown |
 | 2 | Contract locked with a competitor |
 
-Definitions (Iteration 7 clarification; preserves every C8 score in the Iteration 6 key):
+Definitions (Iteration 7 clarification; preserves the C8 scores of the earlier iteration):
 - "Contract locked with a competitor" (score 2) means Incumbent Contract Status is `Locked` and the Contract Renewal Date is 12 or more months after the Scoring As Of Date, or no renewal date is stated.
 - A `Locked` contract renewing in more than 6 and fewer than 12 months scores 4, as "renews in more than 6 months".
 - A date that is unknown with a status other than `Locked` scores 4. A blank incumbent with no other evidence follows the global NS rule.

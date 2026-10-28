@@ -1,5 +1,7 @@
 # Iteration 7 / MVP v1.1 Deterministic Gate Regression
 
+> Historical record. It was run against reference files that have since been removed (the 20 company answer key and Week 6 dataset). Terms such as "working key" and "regression key" refer to those files. The gate scenarios and Iteration 7 draft outcomes remain in `validation/`.
+
 **Date:** 2026-10-12
 **Scoring as-of date:** 2026-10-11 (fixture provenance)
 **Inputs:** `data/20_Company_Dataset_Iteration7.csv`; versioned existing working FIOR score fixture and Iteration 7 draft gate outcomes
