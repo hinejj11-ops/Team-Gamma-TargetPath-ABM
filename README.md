@@ -11,7 +11,7 @@ The MVP contains all 11 requested toolkit components: modular prompts, review pr
 
 A new TargetOrate consultant should execute the toolkit in this order:
 
-1. Complete `templates/Client_ICP_Input_Template.md` and populate account data using `templates/Account_Data_Input_Template.csv`. If a dataset carries a ground truth column, run `tools/split_ground_truth.py` first and score only the `_scoring` copy.
+1. Complete `templates/Client_ICP_Input_Template.md` and populate account data using `templates/Account_Data_Input_Template.csv`. The example datasets use the same column names, in a different order, plus an optional leading `index` row number. Columns are read by name, so order does not matter. The last five narrative columns (Tech Stack, Buying Trigger, Website Research & Behavior, Third-Party Intent Topics, Competitive Context) are legacy and optional; structured V2 fields take precedence. If a dataset carries a ground truth column, run `tools/split_ground_truth.py` first and score only the `_scoring` copy.
 2. Read `workflow/TargetPath_Workflow_Instructions.md`.
 3. Run `prompts/01_Input_Validation_Prompt.md`.
 4. If the input gate permits scoring, run `prompts/02_FIOR_Scoring_Prompt.md` with `MASTER_PROMPT.md` and the scoring artifacts.
@@ -106,4 +106,5 @@ The cold-start MVP acceptance test is documented in `validation/MVP_v1_Acceptanc
 - A first run of the 100 company synthetic dataset is documented in `100_Company_Run_Report.md` and `100_Company_v1.1_Run_Record.md`. It is **provisional**: it stopped at the human input checkpoint and no consultant approval was obtained.
 - Existing MVP v1.0 acceptance results do not establish v1.1 scoring correctness. The test plan is in `validation/MVP_v1_1_Integration_Test_Plan.md`.
 - Vendor-event evidence schema and controls are documented in `workflow/Vendor_Event_Intelligence.md`; no events are prepopulated or assumed verified.
+- `100_Company_v1.1_Run_Record.md` is locked and records the file hashes from the run's commit (`c52b396`). `MASTER_PROMPT.md`, the rubric and prompts 01 and 07 have since been reworded (draft labels, answer key and "blind" wording removed) with no change to scoring logic, so their current hashes differ from the record.
 - Before relying on v1.1 results, a consultant must review the held and flagged accounts and approve final tiers.
