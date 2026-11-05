@@ -41,7 +41,7 @@ A new TargetOrate consultant should execute the toolkit in this order:
 ## Authoritative Scoring Artifacts
 
 - `MASTER_PROMPT.md` — orchestration, source hierarchy, scoring chain, review/output requirements.
-- `FIOR_Scoring_Rubric_10_2_2026.md` — anchored C1-C14 scoring rules and weights.
+- `FIOR_Scoring_Rubric_11_5_2026.md` — anchored C1-C14 scoring rules and weights.
 - `Client_Target_Reference_Lists.md` — TargetOrate product, expansion, strategic-value, and historical benchmark definitions.
 - `data/Criteria_Ranking_Model.csv` — evidence-category importance and review priority.
 - `data/FIOR_Data_Requirements_Matrix.csv` — criterion-to-field evidence contract.

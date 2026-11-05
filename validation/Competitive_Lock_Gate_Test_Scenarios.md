@@ -1,6 +1,6 @@
 # Competitive Lock Gate Test Scenarios (Iteration 7)
 
-**Status:** The gate rules were confirmed by TargetOrate; the scenarios themselves were written by Team Gamma. Expected results follow the gate rules in `FIOR_Scoring_Rubric_10_2_2026.md` as confirmed by TargetOrate. They are a regression check on the gate logic, not an independent accuracy measure. Open assumptions are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
+**Status:** The gate rules were confirmed by TargetOrate; the scenarios themselves were written by Team Gamma. Expected results follow the gate rules in `FIOR_Scoring_Rubric_11_5_2026.md` as confirmed by TargetOrate. They are a regression check on the gate logic, not an independent accuracy measure. Open assumptions are listed in `workflow/Competitive_Lock_Gate_Open_Items.md`.
 
 This file is validation only. Do not read it during a normal scoring run.
 

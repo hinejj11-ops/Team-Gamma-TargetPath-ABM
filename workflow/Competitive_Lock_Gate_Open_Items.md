@@ -1,6 +1,6 @@
 # Competitive Lock Gate: Assumptions and Open Items
 
-**Status:** The gate was confirmed by TargetOrate. This file is kept as the record of the assumptions behind it and may be updated when TargetOrate reviews the delivered files. The gate itself is in `FIOR_Scoring_Rubric_10_2_2026.md` (Competitive Lock Gate) and `MASTER_PROMPT.md` (Step 5A). Tests are in `validation/Competitive_Lock_Gate_Test_Scenarios.md`.
+**Status:** The gate was confirmed by TargetOrate. This file is kept as the record of the assumptions behind it and may be updated when TargetOrate reviews the delivered files. The gate itself is in `FIOR_Scoring_Rubric_11_5_2026.md` (Competitive Lock Gate) and `MASTER_PROMPT.md` (Step 5A). Tests are in `validation/Competitive_Lock_Gate_Test_Scenarios.md`.
 
 ## What came from TargetOrate and what came from Team Gamma
 
